@@ -1,0 +1,1413 @@
+
+
+<head>
+    <meta charset="utf-8">
+    <title>Knowledge Map</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+    <style>
+        div.scrollmenu {
+          background-color: #333;
+          overflow: auto;
+          white-space: nowrap;
+        }
+        
+        div.scrollmenu a {
+          display: inline-block;
+          color: white;
+          text-align: center;
+          padding: 14px;
+          text-decoration: none;
+        }
+        
+        div.scrollmenu a:hover {
+          background-color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="text-align: center; font-size: 45px;">Knowledge Map</h1>
+    <p style="text-align: center; font-size: 30px;">Evolutionary Ontology of the Domain of Knowledge</p>
+    
+<div class="scrollmenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="voting.html">Voting System</a>
+    <a href="#chatGPT_KM.html">ChatGPT Knowledge Map</a>
+</div>
+
+<br>
+
+<script src="//d3js.org/d3.v5.min.js"></script>
+<script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
+<script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
+
+    <input style="width:200px;" id="text1" placeholder="Parent (CamelCase, NoSpaces)">
+    <br>
+    <input style="width:200px;" id="text2" placeholder="Child (CamelCase, NoSpaces)">
+    <br>
+    <button id="btn2">Create Map</button>
+    <button id="btn3">Knowledge Map</button>
+    <button id="btn4">GPT gen: Epistemology Map</button>
+    <p>Buttons 5 and 6 aren't great. I was trying something out with ChatGPT</p>
+    <button id="btn5">GPT Generated KM</button>
+    <button id="btn6">GPT gen: Quantim Physics</button>
+    <p>Buttons 7 and on are great</p>
+    <button id="btn7">GPT gen: Physics</button>
+    <button id="btn8">GPT gen: Math</button>
+    <button id="btn9">GPT gen: Math2</button>
+    <button id="btn10">GPT gen: Mathematical Analysis</button>
+    <button id="btn11">GPT gen: Quantum Computing</button>
+    <button id="btn12">GPT gen: Computer Science</button>
+    <button id="btn13">GPT gen: A New Kind of Science</button>
+    <button id="btn14">GPT gen: Politics</button>
+    <button id="btn15">GPT gen: Economics</button>
+    <button id="btn16">GPT gen: STEM</button>
+    <button id="btn17">GPT gen: Biology</button>
+    <button id="btn18">GPT gen: Neuroscience</button>
+    <button id="btn19">GPT gen: Consciousness</button>
+    <button id="btn20">GPT gen: Machine Learning</button>
+    <button id="btn21">GPT gen: Statistical Mechanics</button>
+    <button id="btn22">GPT gen: Probability and Statistics</button>
+    <button id="btn23">GPT gen: Chemistry</button>
+    <button id="btn24">GPT gen: Linear Algebra</button>
+    <button id="btn25">GPT gen: Astrophysics</button>
+    <button id="btn26">GPT gen: General Relativity</button>
+    <button id="btn27">GPT gen: Topology</button>
+    <button id="btn28">GPT gen: Category Theory</button>
+    <button id="btn29">GPT gen: Set Theory</button>
+
+
+
+
+
+    <p>I could also manually group all the mindmaps above into classes</p>
+
+
+    
+
+
+    <div id="graph"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let dict = {};
+            let keys = {};
+            let counter = 0;
+
+            function fn1() {
+                var parent = document.getElementById("text1").value;
+                var child = document.getElementById("text2").value;
+                dict[counter] = parent;
+                keys[counter] = child;
+                counter++;
+            }
+
+            function fn2() {
+                let inputB = "";
+                for(let i = 0; i < counter; i++) {
+                    inputB += `"${dict[i]}" -> "${keys[i]}" [color = "red"]; `;
+                }
+                let inputA = `digraph { ${inputB} }`;
+                console.log(dict);
+                console.log(keys);
+                let x = d3.select("#graph").graphviz().renderDot(inputA);
+            }
+
+            // function fn2() {
+            //     let inputB = "";
+            //     connections.forEach(connection => {
+            //         inputB += `"${connection.parent}" -> "${connection.child}" [color = "red"]; `;
+            //     });
+            //     let inputA = `digraph { ${inputB} }`;
+            //     d3.select("#graph").graphviz().renderDot(inputA);
+            // }
+
+            function fn2a() {
+                fn1();
+                fn2();
+            }
+
+            function fn3() {
+                dict = {
+                    0: "Math", 
+                    1: "Physics", 
+                    2: "Chemistry", 
+                    3: "Biology", 
+                    4: "Consciousness",
+                    5: "Consciousness",
+                    6: "Consciousness",
+                    7: "Consciousness",
+                    8: "Consciousness"
+                };
+                keys = {
+                    0: "Physics", 
+                    1: "Chemistry", 
+                    2: "Biology", 
+                    3: "Consciousness",
+                    4: "FormalSciences",
+                    5: "NaturalSciences", 
+                    6: "Engineering", 
+                    7: "SocialSciences",
+                    8: "Art"
+                };
+                counter = Object.keys(dict).length;
+                fn2();
+            }
+
+            function fn4() {
+                dict = {
+                    0: "Epistemology",
+                    1: "Epistemology",
+                    2: "Epistemology",
+                    3: "Empiricism",
+                    4: "Rationalism",
+                    5: "Skepticism",
+                    6: "Empiricism",
+                    7: "Rationalism",
+                    8: "Metaphysics",
+                    9: "Ethics",
+                    10: "Aesthetics",
+                    11: "Logic",
+                    12: "Philosophy",
+                    13: "Philosophy",
+                    14: "Philosophy",
+                    15: "Philosophy",
+                    16: "Philosophy"
+                };
+                keys = {
+                    0: "Empiricism",
+                    1: "Rationalism",
+                    2: "Skepticism",
+                    3: "SensoryExperience",
+                    4: "Reason",
+                    5: "Doubt",
+                    6: "Induction",
+                    7: "Deduction",
+                    8: "Ontology",
+                    9: "MoralPhilosophy",
+                    10: "Beauty",
+                    11: "Inference",
+                    12: "Metaphysics",
+                    13: "Ethics",
+                    14: "Aesthetics",
+                    15: "Logic",
+                    16: "Epistemology"
+                };
+                counter = Object.keys(dict).length;
+                fn2();
+            }
+
+            function fn5() {
+                dict = {
+                    0: "Knowledge",
+                    1: "NaturalSciences",
+                    2: "Physics",
+                    3: "Chemistry",
+                    4: "Biology",
+                    5: "EarthScience",
+                    6: "Astronomy",
+                    7: "EnvironmentalScience",
+                    8: "FormalSciences",
+                    9: "Mathematics",
+                    10: "ComputerScience",
+                    11: "Statistics",
+                    12: "SystemsScience",
+                    13: "InformationTheory",
+                    14: "SocialSciences",
+                    15: "Psychology",
+                    16: "Sociology",
+                    17: "Anthropology",
+                    18: "PoliticalScience",
+                    19: "Economics",
+                    20: "Geography",
+                    21: "History",
+                    22: "Humanities",
+                    23: "Philosophy",
+                    24: "Religion",
+                    25: "Language",
+                    26: "Literature",
+                    27: "Art",
+                    28: "Music",
+                    29: "Theatre",
+                    30: "AppliedSciences",
+                    31: "Engineering",
+                    32: "Medicine",
+                    33: "Business",
+                    34: "Education",
+                    35: "Law",
+                    36: "InterdisciplinaryFields",
+                    37: "EnvironmentalStudies",
+                    38: "Bioinformatics",
+                    39: "CognitiveScience",
+                    40: "CulturalStudies",
+                    41: "GenderStudies",
+                    // ... add more nodes as needed ...
+                };
+                keys = {
+                    0: "NaturalSciences",
+                    0: "FormalSciences",
+                    0: "SocialSciences",
+                    0: "Humanities",
+                    0: "AppliedSciences",
+                    0: "InterdisciplinaryFields",
+                    1: "Physics",
+                    1: "Chemistry",
+                    1: "Biology",
+                    1: "EarthScience",
+                    1: "Astronomy",
+                    1: "EnvironmentalScience",
+                    8: "Mathematics",
+                    8: "ComputerScience",
+                    8: "Statistics",
+                    8: "SystemsScience",
+                    8: "InformationTheory",
+                    14: "Psychology",
+                    14: "Sociology",
+                    14: "Anthropology",
+                    14: "PoliticalScience",
+                    14: "Economics",
+                    14: "Geography",
+                    14: "History",
+                    22: "Philosophy",
+                    22: "Religion",
+                    22: "Language",
+                    22: "Literature",
+                    22: "Art",
+                    22: "Music",
+                    22: "Theatre",
+                    30: "Engineering",
+                    30: "Medicine",
+                    30: "Business",
+                    30: "Education",
+                    30: "Law",
+                    36: "EnvironmentalStudies",
+                    36: "Bioinformatics",
+                    36: "CognitiveScience",
+                    36: "CulturalStudies",
+                    36: "GenderStudies",
+                    // ... add more connections as needed ...
+                };
+                counter = Object.keys(dict).length;
+                fn2();
+            }
+
+            function fn6() {
+                dict = {
+                    0: "QuantumPhysics",
+                    1: "QuantumMechanics",
+                    2: "WaveParticleDuality",
+                    3: "Superposition",
+                    4: "Entanglement",
+                    5: "QuantumTunneling",
+                    6: "UncertaintyPrinciple",
+                    7: "QuantumHarmonics",
+                    8: "QuantumFieldTheory",
+                    9: "QuantumElectrodynamics",
+                    10: "QuantumChromodynamics",
+                    11: "QuantumGravity",
+                    12: "QuantumChemistry",
+                    13: "QuantumComputing",
+                    14: "QuantumInformation",
+                    15: "QuantumOptics",
+                    16: "QuantumThermodynamics",
+                };
+                keys = {
+                    0: "QuantumMechanics",
+                    1: "WaveParticleDuality",
+                    2: "Superposition",
+                    3: "Entanglement",
+                    4: "QuantumTunneling",
+                    5: "UncertaintyPrinciple",
+                    6: "QuantumHarmonics",
+                    0: "QuantumFieldTheory",
+                    8: "QuantumElectrodynamics",
+                    9: "QuantumChromodynamics",
+                    10: "QuantumGravity",
+                    0: "QuantumChemistry",
+                    0: "QuantumComputing",
+                    0: "QuantumInformation",
+                    0: "QuantumOptics",
+                    0: "QuantumThermodynamics",
+                };
+                counter = Object.keys(dict).length;
+                fn2();
+            }
+
+
+            function fn7() {
+                dict = {
+                    0: "Physics",
+                    1: "Physics",
+                    2: "Physics",
+                    3: "Mechanics",
+                    4: "Electromagnetism",
+                    5: "Thermodynamics",
+                    6: "Optics",
+                    7: "Quantum Mechanics",
+                    8: "Relativity",
+                    9: "Nuclear Physics",
+                    10: "Classical Mechanics",
+                    11: "Statistical Mechanics",
+                    12: "Fluid Mechanics"
+                };
+                keys = {
+                    0: "Mechanics",
+                    1: "Electromagnetism",
+                    2: "Thermodynamics",
+                    3: "Classical Mechanics",
+                    4: "Magnetic Fields",
+                    5: "Heat Transfer",
+                    6: "Light",
+                    7: "Quantum Theory",
+                    8: "Special Relativity",
+                    9: "Radioactivity",
+                    10: "Kinematics",
+                    11: "Entropy",
+                    12: "Fluid Dynamics"
+                };
+                counter = Object.keys(dict).length;
+                fn2();
+            }
+
+            // Don't feel like organizing the order
+            function fn8() {
+    dict = {
+        0: "Mathematics",
+        1: "Mathematics",
+        2: "Mathematics",
+        3: "Mathematics",
+        4: "Algebra",
+        5: "Geometry",
+        6: "Calculus",
+        7: "Statistics",
+        8: "Linear Algebra",
+        9: "Trigonometry",
+        10: "Differential Equations",
+        11: "Number Theory",
+        12: "Combinatorics",
+        13: "Topology",
+        14: "Applied Mathematics",
+        15: "Pure Mathematics"
+    };
+    keys = {
+        0: "Algebra",
+        1: "Geometry",
+        2: "Calculus",
+        3: "Statistics",
+        4: "Polynomials",
+        5: "Euclidean Geometry",
+        6: "Integration",
+        7: "Probability",
+        8: "Matrix Theory",
+        9: "Sine and Cosine",
+        10: "Ordinary Differential Equations",
+        11: "Prime Numbers",
+        12: "Permutations and Combinations",
+        13: "Compact Spaces",
+        14: "Optimization",
+        15: "Abstract Algebra"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn8").addEventListener("click", fn8);
+
+function fn9() {
+    dict = {
+        0: "Mathematics",
+        1: "Mathematics",
+        2: "Mathematics",
+        3: "Algebra",
+        4: "Geometry",
+        5: "Calculus",
+        6: "Calculus",
+        7: "Statistics",
+        8: "Linear Algebra",
+        9: "Differential Equations",
+        10: "Number Theory",
+        11: "Combinatorics",
+        12: "Topology",
+        13: "Applied Mathematics",
+        14: "Pure Mathematics",
+        15: "Pure Mathematics",
+        16: "Applied Mathematics",
+        17: "Mathematical Physics"
+    };
+    keys = {
+        0: "Algebra",
+        1: "Geometry",
+        2: "Calculus",
+        3: "Polynomials",
+        4: "Euclidean Geometry",
+        5: "Differential Calculus",
+        6: "Integral Calculus",
+        7: "Probability",
+        8: "Matrix Theory",
+        9: "Ordinary Differential Equations",
+        10: "Prime Numbers",
+        11: "Permutations and Combinations",
+        12: "Compact Spaces",
+        13: "Optimization",
+        14: "Abstract Algebra",
+        15: "Number Theory",
+        16: "Statistics",
+        17: "Quantum Mechanics"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn9").addEventListener("click", fn9);
+
+function fn10() {
+    dict = {
+        0: "Mathematical Analysis",
+        1: "Mathematical Analysis",
+        2: "Mathematical Analysis",
+        3: "Mathematical Analysis",
+        4: "Real Analysis",
+        5: "Real Analysis",
+        6: "Complex Analysis",
+        7: "Functional Analysis",
+        8: "Functional Analysis",
+        9: "Functional Analysis",
+        10: "Measure Theory",
+        11: "Harmonic Analysis",
+        12: "Non-standard Analysis"
+    };
+    keys = {
+        0: "Real Analysis",
+        1: "Complex Analysis",
+        2: "Functional Analysis",
+        3: "Measure Theory",
+        4: "Sequences and Series",
+        5: "Continuity",
+        6: "Analytic Functions",
+        7: "Banach Spaces",
+        8: "Hilbert Spaces",
+        9: "Linear Operators",
+        10: "Lebesgue Measure",
+        11: "Fourier Analysis",
+        12: "Hyperreal Numbers"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn10").addEventListener("click", fn10);
+
+function fn11() {
+    dict = {
+        0: "Quantum Computing",
+        1: "Quantum Computing",
+        2: "Quantum Computing",
+        3: "Quantum Computing",
+        4: "Quantum Computing",
+        5: "Quantum Algorithms",
+        6: "Quantum Algorithms",
+        7: "Quantum Hardware",
+        8: "Quantum Error Correction",
+        9: "Quantum Programming Languages",
+        10: "Quantum Cryptography",
+        11: "Quantum Communications",
+        12: "Quantum Entanglement",
+        13: "Quantum Key Distribution"
+    };
+    keys = {
+        0: "Quantum Algorithms",
+        1: "Quantum Hardware",
+        2: "Quantum Error Correction",
+        3: "Quantum Programming Languages",
+        4: "Quantum Cryptography",
+        5: "Shor's Algorithm",
+        6: "Grover's Algorithm",
+        7: "Superconducting Qubits",
+        8: "Surface Codes",
+        9: "Q#",
+        10: "Quantum Key Distribution",
+        11: "Quantum Teleportation",
+        12: "Bell State",
+        13: "BB84 Protocol"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn11").addEventListener("click", fn11);
+
+function fn12() {
+    dict = {
+        0: "Computer Science",
+        1: "Computer Science",
+        2: "Computer Science",
+        3: "Computer Science",
+        4: "Computer Science",
+        5: "Computer Science",
+        6: "Computer Science",
+        7: "Computer Science",
+        8: "Computer Science",
+        9: "Algorithms",
+        10: "Data Structures",
+        11: "Programming Languages",
+        12: "Software Engineering",
+        13: "Database Systems",
+        14: "Operating Systems",
+        15: "Networking",
+        16: "Artificial Intelligence",
+        17: "Computer Graphics",
+        18: "Human-Computer Interaction",
+        19: "Cybersecurity",
+        20: "Computational Theory"
+    };
+    keys = {
+        0: "Algorithms",
+        1: "Data Structures",
+        2: "Programming Languages",
+        3: "Software Engineering",
+        4: "Database Systems",
+        5: "Operating Systems",
+        6: "Networking",
+        7: "Artificial Intelligence",
+        8: "Cybersecurity",
+        9: "Sorting Algorithms",
+        10: "Arrays",
+        11: "Python",
+        12: "Agile Methodologies",
+        13: "SQL",
+        14: "Linux",
+        15: "TCP/IP",
+        16: "Machine Learning",
+        17: "3D Rendering",
+        18: "Usability Testing",
+        19: "Encryption",
+        20: "Automata Theory"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn12").addEventListener("click", fn12);
+
+function fn13() {
+    dict = {
+        0: "A New Kind of Science",
+        1: "A New Kind of Science",
+        2: "A New Kind of Science",
+        3: "A New Kind of Science",
+        4: "Cellular Automata",
+        5: "Cellular Automata",
+        6: "Cellular Automata",
+        7: "Complexity",
+        8: "Computational Irreducibility",
+        9: "Computational Equivalence",
+        10: "Applications",
+        11: "Applications",
+        12: "Applications",
+        13: "Applications",
+        14: "Philosophical Implications"
+    };
+    keys = {
+        0: "Cellular Automata",
+        1: "Complexity",
+        2: "Computational Irreducibility",
+        3: "Computational Equivalence",
+        4: "Rule 30",
+        5: "Rule 110",
+        6: "2D Cellular Automata",
+        7: "Edge of Chaos",
+        8: "Prediction and Determinism",
+        9: "Universality",
+        10: "Natural Phenomena",
+        11: "Technology",
+        12: "Mathematics",
+        13: "Physics",
+        14: "Free Will"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn13").addEventListener("click", fn13);
+
+
+function fn14() {
+    dict = {
+        0: "Politics",
+        1: "Politics",
+        2: "Politics",
+        3: "Politics",
+        4: "Politics",
+        5: "Politics",
+        6: "Political Ideologies",
+        7: "Political Ideologies",
+        8: "Political Ideologies",
+        9: "Political Institutions",
+        10: "Political Institutions",
+        11: "Political Processes",
+        12: "Political Processes",
+        13: "International Relations",
+        14: "Political Activism"
+    };
+    keys = {
+        0: "Political Ideologies",
+        1: "Political Institutions",
+        2: "Political Processes",
+        3: "International Relations",
+        4: "Political Activism",
+        5: "Political Theory",
+        6: "Liberalism",
+        7: "Conservatism",
+        8: "Socialism",
+        9: "Legislature",
+        10: "Executive",
+        11: "Elections",
+        12: "Policy Making",
+        13: "Diplomacy",
+        14: "Protest"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn14").addEventListener("click", fn14);
+
+function fn15() {
+    dict = {
+        0: "Economics",
+        1: "Economics",
+        2: "Economics",
+        3: "Economics",
+        4: "Economics",
+        5: "Microeconomics",
+        6: "Microeconomics",
+        7: "Microeconomics",
+        8: "Macroeconomics",
+        9: "Macroeconomics",
+        10: "Macroeconomics",
+        11: "Behavioral Economics",
+        12: "Development Economics",
+        13: "International Economics",
+        14: "Environmental Economics",
+        15: "Financial Economics",
+        16: "Industrial Organization",
+        17: "Labor Economics",
+        18: "Public Economics",
+        19: "Health Economics"
+    };
+    keys = {
+        0: "Microeconomics",
+        1: "Macroeconomics",
+        2: "Behavioral Economics",
+        3: "Development Economics",
+        4: "International Economics",
+        5: "Demand and Supply",
+        6: "Consumer Behavior",
+        7: "Producer Behavior",
+        8: "GDP",
+        9: "Inflation",
+        10: "Unemployment",
+        11: "Decision Making",
+        12: "Poverty Alleviation",
+        13: "Trade Policies",
+        14: "Natural Resources",
+        15: "Financial Markets",
+        16: "Market Structures",
+        17: "Wage Determination",
+        18: "Government Spending",
+        19: "Healthcare Systems"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn15").addEventListener("click", fn15);
+
+function fn16() {
+    dict = {
+        0: "STEM",
+        1: "STEM",
+        2: "STEM",
+        3: "STEM",
+        4: "Science",
+        5: "Science",
+        6: "Science",
+        7: "Technology",
+        8: "Technology",
+        9: "Technology",
+        10: "Engineering",
+        11: "Engineering",
+        12: "Mathematics",
+        13: "Mathematics",
+        14: "Mathematics",
+        15: "Physics",
+        16: "Chemistry",
+        17: "Biology",
+        18: "Computer Science",
+        19: "Information Technology",
+        20: "Electrical Engineering",
+        21: "Mechanical Engineering",
+        22: "Civil Engineering",
+        23: "Algebra",
+        24: "Geometry",
+        25: "Calculus"
+    };
+    keys = {
+        0: "Science",
+        1: "Technology",
+        2: "Engineering",
+        3: "Mathematics",
+        4: "Physics",
+        5: "Chemistry",
+        6: "Biology",
+        7: "Computer Science",
+        8: "Information Technology",
+        9: "Cybersecurity",
+        10: "Electrical Engineering",
+        11: "Mechanical Engineering",
+        12: "Algebra",
+        13: "Geometry",
+        14: "Calculus",
+        15: "Quantum Mechanics",
+        16: "Organic Chemistry",
+        17: "Genetics",
+        18: "Algorithms",
+        19: "Networking",
+        20: "Circuit Design",
+        21: "Thermodynamics",
+        22: "Structural Engineering",
+        23: "Linear Algebra",
+        24: "Trigonometry",
+        25: "Differential Equations"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn16").addEventListener("click", fn16);
+
+function fn17() {
+    dict = {
+        0: "Biology",
+        1: "Biology",
+        2: "Biology",
+        3: "Biology",
+        4: "Biology",
+        5: "Cell Biology",
+        6: "Genetics",
+        7: "Evolutionary Biology",
+        8: "Ecology",
+        9: "Physiology",
+        10: "Microbiology",
+        11: "Botany",
+        12: "Zoology",
+        13: "Biochemistry",
+        14: "Molecular Biology",
+        15: "Developmental Biology",
+        16: "Neurobiology",
+        17: "Immunology",
+        18: "Biotechnology"
+    };
+    keys = {
+        0: "Cell Biology",
+        1: "Genetics",
+        2: "Evolutionary Biology",
+        3: "Ecology",
+        4: "Physiology",
+        5: "Cell Membrane",
+        6: "DNA",
+        7: "Natural Selection",
+        8: "Ecosystems",
+        9: "Cardiovascular System",
+        10: "Bacteria",
+        11: "Photosynthesis",
+        12: "Animal Behavior",
+        13: "Enzymes",
+        14: "RNA",
+        15: "Embryogenesis",
+        16: "Neurons",
+        17: "Immune Response",
+        18: "Genetic Engineering"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn17").addEventListener("click", fn17);
+
+function fn18() {
+    dict = {
+        0: "Neuroscience",
+        1: "Neuroscience",
+        2: "Neuroscience",
+        3: "Neuroscience",
+        4: "Neuroscience",
+        5: "Neuroscience",
+        6: "Cellular Neuroscience",
+        7: "Molecular Neuroscience",
+        8: "Cognitive Neuroscience",
+        9: "Behavioral Neuroscience",
+        10: "Developmental Neuroscience",
+        11: "Clinical Neuroscience",
+        12: "Systems Neuroscience",
+        13: "Computational Neuroscience",
+        14: "Neuroanatomy",
+        15: "Neuropharmacology",
+        16: "Neurophysiology",
+        17: "Neuroimaging"
+    };
+    keys = {
+        0: "Cellular Neuroscience",
+        1: "Molecular Neuroscience",
+        2: "Cognitive Neuroscience",
+        3: "Behavioral Neuroscience",
+        4: "Developmental Neuroscience",
+        5: "Clinical Neuroscience",
+        6: "Neurons",
+        7: "Neurotransmitters",
+        8: "Memory",
+        9: "Learning",
+        10: "Neurogenesis",
+        11: "Neurological Disorders",
+        12: "Neural Networks",
+        13: "Neural Modeling",
+        14: "Brain Regions",
+        15: "Neuroactive Substances",
+        16: "Electrophysiology",
+        17: "MRI"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn18").addEventListener("click", fn18);
+
+function fn19() {
+    dict = {
+        0: "Consciousness",
+        1: "Consciousness",
+        2: "Consciousness",
+        3: "Consciousness",
+        4: "Consciousness",
+        5: "Neuroscience of Consciousness",
+        6: "Philosophy of Mind",
+        7: "Cognitive Science",
+        8: "Artificial Intelligence",
+        9: "Psychology",
+        10: "States of Consciousness",
+        11: "Theories of Consciousness",
+        12: "Self-Awareness",
+        13: "Perception",
+        14: "Alterations of Consciousness",
+        15: "Consciousness Disorders"
+    };
+    keys = {
+        0: "Neuroscience of Consciousness",
+        1: "Philosophy of Mind",
+        2: "Cognitive Science",
+        3: "Artificial Intelligence",
+        4: "Psychology",
+        5: "Brain Waves",
+        6: "Dualism",
+        7: "Cognitive Processes",
+        8: "Machine Consciousness",
+        9: "Cognitive Psychology",
+        10: "Sleep",
+        11: "Integrated Information Theory",
+        12: "Self-Reflection",
+        13: "Sensory Perception",
+        14: "Meditation",
+        15: "Coma"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn19").addEventListener("click", fn19);
+
+function fn20() {
+    dict = {
+        0: "Machine Learning",
+        1: "Machine Learning",
+        2: "Machine Learning",
+        3: "Machine Learning",
+        4: "Machine Learning",
+        5: "Machine Learning",
+        6: "Supervised Learning",
+        7: "Unsupervised Learning",
+        8: "Reinforcement Learning",
+        9: "Deep Learning",
+        10: "Natural Language Processing",
+        11: "Computer Vision",
+        12: "Time Series Analysis",
+        13: "Anomaly Detection",
+        14: "Feature Engineering",
+        15: "Model Evaluation",
+        16: "Model Deployment",
+        17: "Ethics in Machine Learning"
+    };
+    keys = {
+        0: "Supervised Learning",
+        1: "Unsupervised Learning",
+        2: "Reinforcement Learning",
+        3: "Deep Learning",
+        4: "Natural Language Processing",
+        5: "Computer Vision",
+        6: "Regression",
+        7: "Clustering",
+        8: "Q-Learning",
+        9: "Neural Networks",
+        10: "Sentiment Analysis",
+        11: "Image Recognition",
+        12: "Forecasting",
+        13: "Outlier Detection",
+        14: "Feature Selection",
+        15: "Accuracy",
+        16: "Cloud Deployment",
+        17: "Bias and Fairness"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn20").addEventListener("click", fn20);
+
+function fn21() {
+    dict = {
+        0: "Statistical Mechanics",
+        1: "Statistical Mechanics",
+        2: "Statistical Mechanics",
+        3: "Statistical Mechanics",
+        4: "Statistical Mechanics",
+        5: "Fundamentals",
+        6: "Microstates and Macrostates",
+        7: "Ensembles",
+        8: "Entropy",
+        9: "Temperature",
+        10: "Pressure",
+        11: "Thermodynamic Potentials",
+        12: "Phase Transitions",
+        13: "Quantum Statistical Mechanics",
+        14: "Classical Statistical Mechanics",
+        15: "Non-Equilibrium Statistical Mechanics",
+        16: "Applications"
+    };
+    keys = {
+        0: "Fundamentals",
+        1: "Microstates and Macrostates",
+        2: "Ensembles",
+        3: "Entropy",
+        4: "Quantum Statistical Mechanics",
+        5: "Boltzmann Distribution",
+        6: "Partition Function",
+        7: "Canonical Ensemble",
+        8: "Second Law of Thermodynamics",
+        9: "Thermal Equilibrium",
+        10: "Equation of State",
+        11: "Helmholtz Free Energy",
+        12: "Critical Phenomena",
+        13: "Fermi-Dirac Statistics",
+        14: "Maxwell-Boltzmann Statistics",
+        15: "Transport Phenomena",
+        16: "Solid State Physics"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn21").addEventListener("click", fn21);
+
+function fn22() {
+    dict = {
+        0: "Probability and Statistics",
+        1: "Probability and Statistics",
+        2: "Probability and Statistics",
+        3: "Probability and Statistics",
+        4: "Probability and Statistics",
+        5: "Probability Theory",
+        6: "Descriptive Statistics",
+        7: "Inferential Statistics",
+        8: "Hypothesis Testing",
+        9: "Regression Analysis",
+        10: "Bayesian Statistics",
+        11: "Distributions",
+        12: "Sampling",
+        13: "Estimation",
+        14: "Experimental Design"
+    };
+    keys = {
+        0: "Probability Theory",
+        1: "Descriptive Statistics",
+        2: "Inferential Statistics",
+        3: "Hypothesis Testing",
+        4: "Bayesian Statistics",
+        5: "Events",
+        6: "Mean",
+        7: "Confidence Intervals",
+        8: "p-value",
+        9: "Linear Regression",
+        10: "Bayes' Theorem",
+        11: "Normal Distribution",
+        12: "Sampling Methods",
+        13: "Point Estimation",
+        14: "Randomized Controlled Trials"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn22").addEventListener("click", fn22);
+
+function fn23() {
+    dict = {
+        0: "Chemistry",
+        1: "Chemistry",
+        2: "Chemistry",
+        3: "Chemistry",
+        4: "Chemistry",
+        5: "Organic Chemistry",
+        6: "Inorganic Chemistry",
+        7: "Physical Chemistry",
+        8: "Analytical Chemistry",
+        9: "Biochemistry",
+        10: "Theoretical Chemistry",
+        11: "Materials Science",
+        12: "Nuclear Chemistry",
+        13: "Environmental Chemistry",
+        14: "Solid State Chemistry"
+    };
+    keys = {
+        0: "Atoms and Molecules",
+        1: "Chemical Bonds",
+        2: "Chemical Reactions",
+        3: "Chemical Equilibrium",
+        4: "Acids and Bases",
+        5: "Organic Compounds",
+        6: "Coordination Compounds",
+        7: "Thermodynamics",
+        8: "Quantitative Analysis",
+        9: "Enzyme Kinetics",
+        10: "Quantum Chemistry",
+        11: "Polymers",
+        12: "Radioactivity",
+        13: "Pollution Control",
+        14: "Crystal Structures"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn23").addEventListener("click", fn23);
+
+function fn24() {
+    dict = {
+        0: "Linear Algebra",
+        1: "Linear Algebra",
+        2: "Linear Algebra",
+        3: "Linear Algebra",
+        4: "Linear Algebra",
+        5: "Linear Algebra",
+        6: "Vectors",
+        7: "Matrices",
+        8: "Systems of Linear Equations",
+        9: "Eigenvalues and Eigenvectors",
+        10: "Matrix Operations",
+        11: "Determinants",
+        12: "Linear Transformations",
+        13: "Vector Spaces",
+        14: "Inner Product Spaces",
+        15: "Orthogonality",
+        16: "Diagonalization",
+        17: "Rank"
+    };
+    keys = {
+        0: "Vectors",
+        1: "Matrices",
+        2: "Systems of Linear Equations",
+        3: "Eigenvalues and Eigenvectors",
+        4: "Linear Transformations",
+        5: "Vector Spaces",
+        6: "Vector Addition",
+        7: "Matrix Multiplication",
+        8: "Gaussian Elimination",
+        9: "Characteristic Polynomial",
+        10: "Matrix Inverse",
+        11: "Cramer's Rule",
+        12: "Kernel",
+        13: "Basis",
+        14: "Dot Product",
+        15: "Gram-Schmidt Process",
+        16: "Matrix Decomposition",
+        17: "Matrix Rank"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn24").addEventListener("click", fn24);
+
+function fn25() {
+    dict = {
+        0: "Astrophysics",
+        1: "Astrophysics",
+        2: "Astrophysics",
+        3: "Astrophysics",
+        4: "Astrophysics",
+        5: "Astrophysics",
+        6: "Astrophysics",
+        7: "Celestial Mechanics",
+        8: "Stellar Astrophysics",
+        9: "Galactic and Extragalactic Astrophysics",
+        10: "Cosmology",
+        11: "Planetary Science",
+        12: "High Energy Astrophysics",
+        13: "Observational Astrophysics",
+        14: "Theoretical Astrophysics",
+        15: "Astrochemistry",
+        16: "Astrobiology",
+        17: "Astronomical Instruments",
+        18: "Dark Matter",
+        19: "Dark Energy"
+    };
+    keys = {
+        0: "Celestial Mechanics",
+        1: "Stellar Astrophysics",
+        2: "Galactic and Extragalactic Astrophysics",
+        3: "Cosmology",
+        4: "Planetary Science",
+        5: "High Energy Astrophysics",
+        6: "Observational Astrophysics",
+        7: "Orbital Dynamics",
+        8: "Stellar Evolution",
+        9: "Galaxy Formation",
+        10: "Big Bang Theory",
+        11: "Planetary Geology",
+        12: "Black Holes",
+        13: "Spectroscopy",
+        14: "N-body Simulations",
+        15: "Interstellar Medium",
+        16: "Exoplanets",
+        17: "Telescopes",
+        18: "Dark Matter Halos",
+        19: "Cosmic Acceleration"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn25").addEventListener("click", fn25);
+
+function fn26() {
+    dict = {
+        0: "General Relativity",
+        1: "General Relativity",
+        2: "General Relativity",
+        3: "General Relativity",
+        4: "General Relativity",
+        5: "General Relativity",
+        6: "Einstein's Field Equations",
+        7: "Spacetime",
+        8: "Gravitational Waves",
+        9: "Black Holes",
+        10: "Cosmology",
+        11: "Experimental Tests",
+        12: "Energy-Momentum Tensor",
+        13: "Geodesics",
+        14: "Schwarzschild Solution",
+        15: "Kerr Solution",
+        16: "Friedmann-Lemaître-Robertson-Walker Metric",
+        17: "Gravitational Lensing"
+    };
+    keys = {
+        0: "Einstein's Field Equations",
+        1: "Spacetime",
+        2: "Gravitational Waves",
+        3: "Black Holes",
+        4: "Cosmology",
+        5: "Experimental Tests",
+        6: "Ricci Tensor",
+        7: "Curvature",
+        8: "LIGO",
+        9: "Event Horizon",
+        10: "Dark Energy",
+        11: "Gravity Probe B",
+        12: "Stress-Energy",
+        13: "World Line",
+        14: "Schwarzschild Radius",
+        15: "Kerr Black Hole",
+        16: "Cosmic Expansion",
+        17: "Einstein Ring"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn26").addEventListener("click", fn26);
+
+function fn27() {
+    dict = {
+        0: "Topology",
+        1: "Topology",
+        2: "Topology",
+        3: "Topology",
+        4: "Topology",
+        5: "Topology",
+        6: "General Topology",
+        7: "Algebraic Topology",
+        8: "Differential Topology",
+        9: "Geometric Topology",
+        10: "Point-Set Topology",
+        11: "Knot Theory",
+        12: "Manifolds",
+        13: "Homotopy",
+        14: "Homology",
+        15: "Cohomology",
+        16: "Sheaf Theory",
+        17: "Category Theory",
+        18: "Compactness",
+        19: "Connectedness"
+    };
+    keys = {
+        0: "General Topology",
+        1: "Algebraic Topology",
+        2: "Differential Topology",
+        3: "Geometric Topology",
+        4: "Point-Set Topology",
+        5: "Knot Theory",
+        6: "Open Sets",
+        7: "Fundamental Group",
+        8: "Morse Theory",
+        9: "Surface Topology",
+        10: "Closure",
+        11: "Knot Invariants",
+        12: "Differentiable Manifolds",
+        13: "Homotopy Equivalence",
+        14: "Simplicial Homology",
+        15: "De Rham Cohomology",
+        16: "Sheaf Cohomology",
+        17: "Functors",
+        18: "Heine-Borel Theorem",
+        19: "Path Connectedness"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn27").addEventListener("click", fn27);
+
+function fn28() {
+    dict = {
+        0: "Category Theory",
+        1: "Category Theory",
+        2: "Category Theory",
+        3: "Category Theory",
+        4: "Category Theory",
+        5: "Categories",
+        6: "Functors",
+        7: "Natural Transformations",
+        8: "Adjunctions",
+        9: "Monads",
+        10: "Limits and Colimits",
+        11: "Arrows",
+        12: "Abelian Categories",
+        13: "Topoi",
+        14: "Higher Category Theory",
+        15: "Monoidal Categories",
+        16: "Enriched Categories",
+        17: "Operads",
+        18: "Homological Algebra"
+    };
+    keys = {
+        0: "Categories",
+        1: "Functors",
+        2: "Natural Transformations",
+        3: "Adjunctions",
+        4: "Monads",
+        5: "Objects",
+        6: "Functoriality",
+        7: "Naturality",
+        8: "Adjunction Homomorphism",
+        9: "Monad Algebras",
+        10: "Direct Limit",
+        11: "Arrow Category",
+        12: "Exact Sequences",
+        13: "Sheaves",
+        14: "n-Categories",
+        15: "Tensor Product",
+        16: "Enrichment",
+        17: "Operadic Algebra",
+        18: "K-Theory"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn28").addEventListener("click", fn28);
+
+function fn29() {
+    dict = {
+        0: "Set Theory",
+        1: "Set Theory",
+        2: "Set Theory",
+        3: "Set Theory",
+        4: "Set Theory",
+        5: "Set Theory",
+        6: "Basic Concepts",
+        7: "Operations",
+        8: "Relations",
+        9: "Functions",
+        10: "Cardinality",
+        11: "Axiomatic Set Theory",
+        12: "Ordinals",
+        13: "Cardinals",
+        14: "Continuum Hypothesis",
+        15: "Large Cardinals",
+        16: "Constructive Set Theory",
+        17: "Descriptive Set Theory",
+        18: "Forcing"
+    };
+    keys = {
+        0: "Basic Concepts",
+        1: "Operations",
+        2: "Relations",
+        3: "Functions",
+        4: "Cardinality",
+        5: "Axiomatic Set Theory",
+        6: "Sets",
+        7: "Union",
+        8: "Equivalence Relations",
+        9: "Injective Functions",
+        10: "Countable Sets",
+        11: "Zermelo-Fraenkel Set Theory",
+        12: "Ordinal Numbers",
+        13: "Cardinal Numbers",
+        14: "Cantor's Theorem",
+        15: "Measurable Cardinals",
+        16: "Intuitionistic Set Theory",
+        17: "Borel Hierarchy",
+        18: "Forcing Extensions"
+    };
+    counter = Object.keys(dict).length;
+    fn2();
+}
+
+document.getElementById("btn29").addEventListener("click", fn29);
+
+
+// end of unorganized functions, i may get on this later
+
+            document.getElementById("btn2").addEventListener("click", fn2a);
+            document.getElementById("btn3").addEventListener("click", fn3);
+            document.getElementById("btn4").addEventListener("click", fn4);
+            document.getElementById("btn5").addEventListener("click", fn5);
+            document.getElementById("btn6").addEventListener("click", fn6);
+            document.getElementById("btn7").addEventListener("click", fn7);
+
+
+
+        });
+    </script>
+</body>
+</html>

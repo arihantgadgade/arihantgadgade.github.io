@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Knowledge Map</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+    <style>
+        div.scrollmenu {
+          background-color: #333;
+          overflow: auto;
+          white-space: nowrap;
+        }
+        
+        div.scrollmenu a {
+          display: inline-block;
+          color: white;
+          text-align: center;
+          padding: 14px;
+          text-decoration: none;
+        }
+        
+        div.scrollmenu a:hover {
+          background-color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<h1 style="text-align: center; font-size: 45px;">Knowledge Map</h1>
+<p style="text-align: center; font-size: 30px;">Evolutionary Ontology of the Domain of Knowledge</p>
+
+<div class="scrollmenu">
+    <a href="#home">Home</a>
+    <a href="about.html">About</a>
+    <a href="voting.html">Voting System</a>
+    <a href="chatGPT_KM.html">ChatGPT Knowledge Map</a>
+</div>
+
+<br>
+
+<script src="//d3js.org/d3.v5.min.js"></script>
+<script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
+<script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
+<div id="graph" style="text-align: center;"></div>
+<!--pass in 'digraph {a -> b a -> c}'-->
+<!--fn1 allows for multiple submissions, so that it's filling up the dict (DONE)-->
+<!--fn2 should then create the graph, with a string (DONE)-->
+<!--^ need a string that is created with a while loop that iterates over the dict (DONE)-->
+<script>
+    var dict = []
+    var keys = []
+    var counter = 0;
+
+    function fn1() // Creates the dict
+    {
+        var parent = document.getElementById("text1").value;
+        var child = document.getElementById("text2").value;
+        dict[counter] = parent
+        keys[counter] = child
+        counter++;
+
+    }
+    function fn2() // creates the graph
+    {
+        var inputB = "";
+        var i = 0;
+        var j = dict.length;
+        while (i < j) {
+            inputB = inputB + "\"" + dict[i] + "\"" + " -> " + "\"" + keys[i] + "\"" + " " + '[color = "red"]' + " ";
+            i++;
+        }
+        var inputA = "digraph {" + inputB + "}";
+        console.log(dict)
+        console.log(keys)
+        x = d3.select("#graph").graphviz().renderDot(inputA);
+    }
+    function fn2a() {
+        fn1()
+        fn2()
+    }
+    function fn3()
+    {
+        dict = ["Math", "Physics", "Chemistry", "Biology", "Consciousness","Consciousness","Consciousness","Consciousness","Consciousness"]
+        keys = ["Physics", "Chemistry", "Biology", "Consciousness","FormalSciences","NaturalSciences", "Engineering", "SocialSciences","Art"]
+        counter = dict.length
+        fn2()
+    }
+    function fn4() // Use Console to find out the arrays I've made then copy and paste below
+    {
+        dict = ['Consciousness', "Reason&Logic", "Reason&Logic", 'FormalLogic', "Math", "Physics", "Chemistry", "Biology", "Humanity","Humanity","Humanity","Humanity","Humanity"]
+        keys = ["Reason&Logic", 'Philosophy', 'FormalLogic', 'Math', "Physics", "Chemistry", "Biology", "Humanity","FormalSciences","NaturalSciences", "Engineering", "SocialSciences","Art"]
+        counter = dict.length
+        fn2()
+    } // figure out how to make sideways pointing nodes, or use SAME RANK
+    function fn5()
+    {
+        dict = ["Math", "Physics", "Chemistry", "Biology", "Consciousness","Consciousness","Consciousness","Consciousness","Consciousness", 'FormalSciences', 'FormalSciences', 'FormalSciences', 'FormalSciences', 'NaturalSciences', 'NaturalSciences', 'NaturalSciences', 'NaturalSciences', 'NaturalSciences', 'NaturalSciences', 'Engineering', 'Engineering', 'Engineering', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'Art', 'Art', 'Art']
+        keys = ["Physics", "Chemistry", "Biology", "Consciousness","FormalSciences","NaturalSciences", "Engineering", "SocialSciences", "Art", 'SystemsSci', 'Mathematics', 'Philosophy', 'Logic', 'Phys', 'Chem', 'Bio', 'Cosmology', 'Astronomy', 'EarthSci', 'ElectricalEng', 'MechanicalEng', 'CivilEng', 'History', 'Humanities', 'Sociology', 'Psychology', 'Anthropology', 'Religion', 'Archaeology', 'Linguistics', 'Economy', 'PoliSci', 'Law', 'MilitarySci', 'VisualArts', 'Music', 'Literature']
+        counter = dict.length
+        fn2()
+    }
+    function fn6()
+    {
+        dict = ["Math", "Physics", "Chemistry", "Biology", "Consciousness","Consciousness","Consciousness","Consciousness","Consciousness", 'FormalSciences', 'FormalSciences', 'FormalSciences', 'FormalSciences', 'NaturalSciences', 'NaturalSciences', 'NaturalSciences', 'NaturalSciences', 'NaturalSciences', 'Engineering', 'Engineering', 'Engineering', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'SocialSciences', 'Art', 'Art', 'Art']
+        dict.push('Mathematics', 'Mathematics', 'Mathematics', 'PureMath', 'PureMath', 'PureMath', 'PureMath', 'NumberSystems', 'NumberSystems');
+        dict.push('Numbers', 'Real', 'Real', 'Rational', 'Rational', 'Numbers', 'Numbers', "NumberSystems", 'Structures', 'Algebra', 'Vectors', 'Spaces', 'Geometry', 'Changes', 'DifferentialCalculus', 'IntegralCalculus', 'MultivariateCalculus', 'AppliedMath', 'Probability', 'AppliedMath', 'Foundations', 'Foundations');
+        dict.push('Phys', 'ClassicalPhysics', 'NewtonianMechanics', 'ClassicalPhysics', 'ClassicalPhysics', 'Phys', 'Relativity', 'Relativity', 'Phys', 'Phys');
+        keys = ["Physics", "Chemistry", "Biology", "Consciousness","FormalSciences","NaturalSciences", "Engineering", "SocialSciences", "Art", 'SystemsSci', 'Mathematics', 'Philosophy', 'Logic', 'Phys', 'Chem', 'Bio', 'Astronomy', 'EarthSci', 'ElectricalEng', 'MechanicalEng', 'CivilEng', 'History', 'Humanities', 'Sociology', 'Psychology', 'Anthropology', 'Religion', 'Archaeology', 'Linguistics', 'Economy', 'PoliSci', 'Law', 'MilitarySci', 'VisualArts', 'Music', 'Literature']
+        keys.push('PureMath', 'AppliedMath', 'Foundations', 'NumberSystems', 'Structures', 'Spaces', 'Changes', 'Numbers', 'Arithmetic');
+        keys.push('Real', 'Rational', 'Irrational', 'Fractions', 'Integers', 'Primes', 'Infinity', "NumberTheory", 'Algebra', 'Vectors', 'LinearAlgebra', 'Geometry', 'Trigonometry', 'DifferentialCalculus', 'IntegralCalculus', 'MultivariateCalculus', 'DifferentialEquations', 'Probability', 'Statistics', 'GameTheory', 'MathematicalLogic', 'ComplexityTheory');
+        keys.push('ClassicalPhysics', 'NewtonianMechanics', 'Gravity', 'Electromagnetism', 'Thermodynamics', 'Relativity', 'SpecialRelativity', 'GeneralRelativity', 'QuantumPhysics', 'Cosmology');
+        counter = dict.length
+        fn2()
+    }
+    function fn7()
+    {
+        dict = ['ElectricalEng', 'ElectricalEng', 'Basic Circuits', 'Basic Circuits', 'Digital Electronics', 'Assembly', 'Digital Systems Design', 'Assembly', 'Low Level Programming', 'Scripting Languages']
+        keys = ['Power Engineering', 'Basic Circuits', 'Analog Electronics', 'Digital Electronics', 'Assembly', 'Digital Systems Design', 'Computer Engineering', 'Low Level Programming', 'Scripting Languages', 'Computer Sci']
+        counter = dict.length
+        fn2()
+    }
+    function fn8()
+    {
+        dict = ['Phys', 'ClassicalPhysics', 'NewtonianMechanics', 'ClassicalPhysics', 'ClassicalPhysics', 'Phys', 'Relativity', 'Relativity', 'Phys', 'Phys']
+        keys = ['ClassicalPhysics', 'NewtonianMechanics', 'Gravity', 'Electromagnetism', 'Thermodynamics', 'Relativity', 'SpecialRelativity', 'GeneralRelativity', 'QuantumPhysics', 'Cosmology']
+        counter = dict.length
+        fn2()
+    }
+
+</script>
+
+<input style="width:200px;" id="text1" placeholder="Parent (CamelCase, NoSpaces)">
+<br>
+<input style="width:200px;" id="text2" placeholder="Child (CamelCase, NoSpaces)">
+<!-- <br>
+<button onclick="fn1()" id="btn1">Submit</button> -->
+<br>
+<button onclick="fn2a()" id="btn2">Create Map</button>
+
+<br>
+<br>
+<p>Version History</p>
+<button onclick="fn3()" id="btn3">KMver1</button>
+<button onclick="fn4()" id="btn4">KMver2</button>
+<button onclick="fn5()" id="btn5">KMver3</button>
+<button onclick="fn6()" id="btn6">KMver4</button>
+<button onclick="fn7()" id="btn7">Electrical Engineering</button>
+<button onclick="fn8()" id="btn8">Physics</button>
+
+</body>
