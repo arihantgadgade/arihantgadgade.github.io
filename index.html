@@ -39,6 +39,12 @@
 
 <br>
 
+<h4>How to Use:</h4>
+<p>Create a mindmap using the Map Maker, or click on one of the Maps in the Map Repository.</p>
+<p>Desktop: Scroll to enlarge/minimize the graphs. Click and drag to move around</p>
+<p>Mobile: Can use pinch to enlarge/minimize the graphs. Drag to move around</p>
+<p>*** Some of the larger graphs (like KMver4) you may need to scroll first before being able to see</p>
+<h4>MindMap Displays Here:</h4>
 <script src="//d3js.org/d3.v5.min.js"></script>
 <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
 <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
@@ -130,6 +136,8 @@
 
 </script>
 
+<h4>MindMap Maker:</h4>
+
 <input style="width:200px;" id="text1" placeholder="Parent (CamelCase, NoSpaces)">
 <br>
 <input style="width:200px;" id="text2" placeholder="Child (CamelCase, NoSpaces)">
@@ -137,15 +145,24 @@
 <button onclick="fn1()" id="btn1">Submit</button> -->
 <br>
 <button onclick="fn2a()" id="btn2">Create Map</button>
+<p>In the Map Maker test out ("A" in parent, "B" in child), hit Create Map, then ("A" in parent, "B" in child), hit Create Map</p>
 
-<br>
-<br>
-<p>Version History</p>
+<h4>Map Repository:</h4>
+<p>Here are some knowledge maps (KMver1-4) and some specific field maps</p>
+<p>*** KMver1-4 increases in granularity</p>
+
 <button onclick="fn3()" id="btn3">KMver1</button>
 <button onclick="fn4()" id="btn4">KMver2</button>
 <button onclick="fn5()" id="btn5">KMver3</button>
 <button onclick="fn6()" id="btn6">KMver4</button>
 <button onclick="fn7()" id="btn7">Electrical Engineering</button>
 <button onclick="fn8()" id="btn8">Physics</button>
+
+<p>*** ChatGPT Knowledge Map has a lot more knowledge maps</p>
+
+<br>
+<h4>Notes on the website currently</h4>
+<p>This is just a rough demo/skeleton to get out some of my ideas.</p>
+<p>Only a static website, so no server side stuff for storing the maps, which is crucial to the voting system.</p>
 
 </body>
