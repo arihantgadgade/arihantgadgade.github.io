@@ -1,0 +1,137 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Article Container */
+.article {
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+/* Headings */
+.article h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.article h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.article h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Paragraphs */
+.article p {
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+/* Links */
+.article a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.article a:hover {
+    text-decoration: underline;
+}
+
+/* Images */
+.article img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+}
+
+/* Lists */
+.article ul,
+.article ol {
+    margin: 20px 0 20px 40px;
+}
+
+.article li {
+    margin-bottom: 10px;
+}
+
+/* Blockquotes */
+.article blockquote {
+    margin: 20px 0;
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #ccc;
+    font-style: italic;
+}
+
+/* Code */
+.article pre,
+.article code {
+    background-color: #eef;
+    padding: 10px;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em;
+}
+
+/* Tables */
+.article table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.article th,
+.article td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.article th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .article {
+        padding: 20px;
+    }
+
+    .article h1 {
+        font-size: 2em;
+    }
+
+    .article h2 {
+        font-size: 1.75em;
+    }
+
+    .article h3 {
+        font-size: 1.5em;
+    }
+}
