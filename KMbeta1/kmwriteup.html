@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Knowledge Map Project Writeup</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="../Assets/styles.css">
+</head>
+<body>
+    <article class="article">
+        <h1>Knowledge Map Project Writeup</h1>
+        <p>
+            <a href="../index.html">Arihant Gadgade</a> <br>
+            Date Published: 9/20/2024<br>
+        </p>
+
+        <p>
+            When learning any new subject one always approaches the issue of what is the framework within which the subject is being discussed. For example math is the framework for physics, so if one wanted to learn about physics without knowing that math existed, they would be quite lost. Obviously that is a bit of a dramatic example. But the main idea is knowing where one is located within some information space. People also say this as knowing the prerequisites for a subject. We can do this for specific subjects as well, for example with quantum computation, it's essential to know linear algebra, computation and algorithms, and quantum mechanics. Then one can move up the knowledge hierarchy tree if one realized that they were missing a prerequisite, say linear algebra for QC. This allows one to move up and down the knowledge hierarchy tree. So essentially the issue is understanding where one is located within a knowledge tree.
+        </p>
+
+        <p>
+            So that led me to thinking it would be a good idea to build a super connected global metagraph of all knowledge. This was my <a href="home.html">Knowledge Map</a> project, which I started in highschool. You can read more about my initial efforts here which will also give more on the philosophy behind this project: <a href="about.html"> Knowledge Map About Page</a>. So I finished out a beta of the project, then got distracted with school and such.
+        </p>
+
+        <p>
+            After a little hiatus I decided to try my hand at this idea again after finding out about <a href="https://reactflow.dev/">React Flow</a>, I thought that it would be a good tool to try and build KM with. So I created KM with a MERN stack and Reactflow:
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/qbKbbywnw0I?si=otu6vqSbdQjUMfeq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <p>
+            I started thinking it may be a good idea to just create a Wikipedia wrapper where one searches for articles that are already created, then builds a graph for that, this way I could use Wikipedia's search functionality for people to go and locate which graph they want to find, instead of building out search functionality for my site.
+        </p>
+
+        <p>Looking at wikipedia linkage with Mathematica:</p>
+        <img src="Assets/WLwiki1.png" alt="WLwiki1">
+        <img src="Assets/WLwiki2.png" alt="WLwiki2">
+
+        <p>
+            I knew there were certain projects that already tried their hand at creating knowledge graphs based on wikipedia linkage and such. The issue with these projects is that it only gives one such ontology for thinking about a subject, namely one based on linkage. But I want to see multiple such ontologies for the same subject from different domain experts, and see which are highest voted, and what's the difference in number of votes from the highest voted map to the second highest. Does one blow the other out of the water? Or are they neck and neck? Essentially I have epistemological qualms with there being a singular structure of knowledge. That’s where I believe the voting system shines.
+        </p>
+        <p>
+            <a href="https://sionar.github.io/WikiGraph/">WikiGraph</a>:
+            <img src="Assets/WikiGraph.png" alt="WikiGraph">
+        </p>
+
+        <p>
+            <a href="https://wiki2map.org/#">Wiki2Map</a>:
+            <img src="Assets/Wiki2Map.png" alt="Wiki2Map">
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/JheGL6uSF-4?si=6I90rX2UswBOb2Oh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <p>
+            I also learned of the Freebase and Google Knowledge Graph, which are quite interesting in of themselves, but again didn’t structure the knowledge in the way I wanted, not to mention it's quite a different tool. Other notable mentions that are related are <a href="https://paperswithcode.com/dataset/wikigraphs">WikiGraph</a> and <a href="https://paperswithcode.com/dataset/wikitext-103">WikiText</a>. It should be noted, that this is a different WikiGraph than the one I showed earlier.
+            <br>
+            <img src="Assets/WikiGraphText.png" alt="WikiGraphText">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PZBm7M0HGzw?si=7jFy55SjowXO07C9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </p>
+
+        <p>
+            I began thinking about AI again, and realized that I could honestly probably save lots of manhours by waiting until AI gets better and then using the same approach I used with my <a href="chatGPT_KM.html">KM beta</a>: have the LLMs create the knowledge maps. I actually tried doing that with my knowledge graph website all the way back when ChatGPT first came out, I essentially just fed in the code of the website, and said “using that give me text in the form of the graphs I create and use that template to build out graphs for subjects”. And even with GPT3.5 it did a fairly decent job. They seem to be able to do the aggregation well, so given enough time they will probably close in on doing the aggregation by themselves, and it could save a lot of manhours.
+            And I could go beyond this to get the different ontologies by asking the LLM to list out all the top ontologies and then create knowledge maps for each. Or ask it to create prerequisite knowledge graphs for the subject one is learning to get an idea of where one is in the knowledge graph. 
+        </p>
+
+        <p>
+            So perhaps I may continue building this out, but for now I think I will conclude.
+        </p>
+
+        
+    </article>
+</body>
+</html>
