@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizer for the Relationship between the Derivative and Trigonometric Tangent Function</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="../../../../Assets/styles.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script src="../../../../js/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <article class="article">
+        <h1>Visualizer for the Relationship between the Derivative and Trigonometric Tangent Function</h1>
+        <p>
+            <a href="../../../../../index.html">Arihant Gadgade</a> <br>
+            <a href="../../../writings.html">Writings</a> <br>
+            Date Published: 11/11/2024<br>
+        </p>
+        <a href="https://github.com/arihantgadgade/TangentTrigDerivativeVisualizer"> GitHub Repo</a>
+
+        <p>I was interested in the fact that trig $\tan(x)$ and derivative tangent share the same name,
+            but funnily I hadn't really fleshed out the connection in my head,
+            even though they have the same mathematical flavor of representing slope.</p>
+        <p>I was introduced to $\tan(\theta)$ as something representing opposite side over adjacent side wrt triangles,
+            and tangent of a derivative as an instantaneous rise over run.</p>
+        <p>But now I can connect the concept of a tangent and the tangent function:
+            At any point take the tangent of the function,
+            the angle this tangent line makes with the x-axis is $\theta$ ,
+            $\tan(\theta)$ then represents steepness.
+            <br />Hence $\theta=0 \implies \tan(0)=0$,
+            thus an angle of 0 is trivially no steepness along a curve.
+            And $\theta=\frac{\pi}{2} \implies \tan(\frac{\pi}{2}) = \infty$,
+            thus an angle of $\frac{\pi}{2}$ is infinite steepness along a curve.
+        </p>
+        <p>This animation illustrates this by allowing the user to
+            input any function and seeing the corresponding location
+            along the tan curve as well as the corresponding unit triangle
+            representation of the slope.
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/3_ufSZlmDqM?si=-M8M04dUIxP9KOlG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p>
+            Note: Used ChatGPT to build most of this out.
+            Had the idea in my head to use manipulate and show
+            the graph of the function and the corresponding point
+            along the tan function that represent the slope of the function,
+            as well as the unit triangle so one can get a notion of the trigonometric nature.
+            It was incredibly fast and efficient to do so, and I only used the 4o model.
+            Interesting bc Wolfram talks about Mathematica as an ideation software,
+            as it allows one to quickly go from (1) idea, (2) concept of how it should be implemented,
+            (3) implementation. LLMs seem to enhance this capability, as it reduces the time of step 3
+            by allowing me to just test and verify its implementation with small tweaks.
+        </p>
+        <p>
+            This thought came up while reading Ch. 13 of Townsend's A Modern Approach to Quantum Mechanics:
+        </p>
+        <img src="qmch13clip.png" alt="qmch13clip">
+        <p>
+            Aside: this was also an excuse for me to try out MathJax as I wanted to try using LaTeX in my html code.
+        </p>
+
+    </article>
+</body>
+
+</html>
