@@ -12,11 +12,18 @@
         body, .header, .tree {
             font-family: monospace;
         }
+        body {
+            background: url('../Assets/carlsbergmoon.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
         .content-container {
             max-width: 800px;
-            margin-left: 1%;
+            margin: 40px auto;
             padding: 20px;
             word-wrap: break-word;
+            background-color: rgba(255, 255, 255, 0.7); /* white box with 70% opacity */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* soft shadow for better separation */
         }
         .header, .tree {
             white-space: pre;
