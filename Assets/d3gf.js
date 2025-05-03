@@ -4,9 +4,8 @@ var treeData = {
     {
       "name": "Personal Projects",
       "children": [
-        { "name": "Knowledge Map"},
-        { "name": "Townsend QM Formula Viewer" },
-        { "name": "Neocities Site: Aricity" }
+        { "name": "Engineering"},
+        { "name": "Programming"}
       ]
     },
     {
