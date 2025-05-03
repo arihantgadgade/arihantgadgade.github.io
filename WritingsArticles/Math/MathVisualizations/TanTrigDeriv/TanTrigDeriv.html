@@ -6,14 +6,10 @@
     <title>Visualizer for the Relationship between the Derivative and Trigonometric Tangent Function</title>
     <!-- Link to your CSS file -->
     <link rel="stylesheet" href="../../../../Assets/styles.css">
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-            }
-        };
-    </script>
-    <script src="../../../../js/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../../../katex/katex.min.css">
+    <script defer src="../../../../katex/katex.min.js"></script>
+    <script defer src="../../../../katex/auto-render.min.js"
+            onload="renderMathInElement(document.body);"></script>
 </head>
 
 <body>
@@ -26,19 +22,19 @@
         </p>
         <a href="https://github.com/arihantgadgade/TangentTrigDerivativeVisualizer"> GitHub Repo</a>
 
-        <p>I was interested in the fact that trig $\tan(x)$ and derivative tangent share the same name,
+        <p>I was interested in the fact that trig \(\tan(x)\) and derivative tangent share the same name,
             but funnily I hadn't really fleshed out the connection in my head,
             even though they have the same mathematical flavor of representing slope.</p>
-        <p>I was introduced to $\tan(\theta)$ as something representing opposite side over adjacent side wrt triangles,
+        <p>I was introduced to \(\tan(\theta)\) as something representing opposite side over adjacent side wrt triangles,
             and tangent of a derivative as an instantaneous rise over run.</p>
         <p>But now I can connect the concept of a tangent and the tangent function:
             At any point take the tangent of the function,
-            the angle this tangent line makes with the x-axis is $\theta$ ,
-            $\tan(\theta)$ then represents steepness.
-            <br />Hence $\theta=0 \implies \tan(0)=0$,
+            the angle this tangent line makes with the x-axis is \(\theta\),
+            \(\tan(\theta)\) then represents steepness.
+            <br />Hence \(\theta=0 \implies \tan(0)=0\),
             thus an angle of 0 is trivially no steepness along a curve.
-            And $\theta=\frac{\pi}{2} \implies \tan(\frac{\pi}{2}) = \infty$,
-            thus an angle of $\frac{\pi}{2}$ is infinite steepness along a curve.
+            And \(\theta=\frac{\pi}{2} \implies \tan(\frac{\pi}{2}) = \infty\),
+            thus an angle of \(\frac{\pi}{2}\) is infinite steepness along a curve.
         </p>
         <p>This animation illustrates this by allowing the user to
             input any function and seeing the corresponding location
@@ -64,6 +60,7 @@
         <img src="qmch13clip.png" alt="qmch13clip">
         <p>
             Aside: this was also an excuse for me to try out MathJax as I wanted to try using LaTeX in my html code.
+            Update: Actually decided to go with KaTeX.
         </p>
 
     </article>
