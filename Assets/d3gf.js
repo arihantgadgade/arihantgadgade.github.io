@@ -16,20 +16,16 @@ var treeData = {
       ]
     },
     {
-      "name": "Wolfram Community Profile"
-    },
-    {
-      "name": "GitHub"
-    },
-    {
-      "name": "About"
-    },
-    {
-      "name": "Socials",
+      "name": "Links",
       "children": [
+        { "name": "Wolfram Community Profile" },
+        { "name": "GitHub" },
         { "name": "YouTube" },
         { "name": "LinkedIn" }
       ]
+    },
+    {
+      "name": "About"
     }
   ]
 };

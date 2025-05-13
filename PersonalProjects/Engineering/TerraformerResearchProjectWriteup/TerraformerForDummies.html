@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Terraformer For Dummies</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="../../../Assets/styles.css">
+</head>
+<body>
+    <article class="article">
+        <h1>Terraformer For Dummies</h1>
+        <p>
+            <a href="../../../index.html">Arihant Gadgade</a> <br>
+            <a href="TerraformerReProDirectory.html">Terraformer Research Project Directory</a> <br>
+            Date Published: 5/12/2025<br>
+        </p>
+
+        <h3 id="contents">Contents</h3>
+        <ul>
+            <li><a href="#1."><strong>1. Introduction:</strong></a> Overview of what the Terraformer is and why it's necessary</li>
+            <li>
+                <a href="#2."><strong>2. Energy:</strong></a> Contextualizing Terraformer in terms of energy supplies and sources
+                <ul>
+                    <li><a href="#2.1."><strong>2.1. Terraformer Unit Energies:</strong></a> Giving an idea of the energy scale of a single Terraformer unit</li>
+                    <li><a href="#2.2."><strong>2.2. Global Energy Primer:</strong></a> Giving an idea of the yearly energy consumption of the world</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#3."><strong>3. Terrafomer and Energy Economics:</strong></a> Understanding the economics allowing Terrafomer to be profitable
+                <ul>
+                    <li><a href="#3.1."><strong>3.1. Energy Economics:</strong></a> Understanding the cost trends for energy sources, and why this bodes well for Terraformer</li>
+                    <li><a href="#3.2."><strong>3.2. Terraformer Module Economics:</strong></a> Understanding the economics for a single Terraformer unit</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#4."><strong>4. How Terraformer Actually Works</strong></a> COMING SOON
+            </li>
+        </ul>
+
+        <h2 style="color: red;" id="1.">
+            1. Introduction
+            <a href="#contents">🔝</a>
+        </h2>
+
+        <p>
+            This is meant as a fairly simplistic introduction to the Terraformer. I'm writing this in an effort to learn about the technology for myself, and
+            explaining it will hopefully provide value to those who read this too. <br>
+            <br>
+            Trees can be thought of as machines that consume solar energy and CO<sub>2</sub> and produce burnable fuel. The Terraformer has a similar process,
+            except it is more <a href="https://en.wikipedia.org/wiki/Photosynthetic_efficiency">efficient</a> (if interested, check out "10: Realignment of Insecure Energy Supply Chain" in 
+            <a href="https://caseyhandmer.wordpress.com/2024/02/07/terraformer-environmental-calculus/">Terraformer Environmental Calculus</a>).
+            Simply put the Terraformer is a solar powered machine that is fed in water and captures C0<sub>2</sub> from the air, then using the H<sub>2</sub>
+            from the H<sub>2</sub>O and captured CO<sub>2</sub> converts this to natural gas (methane). And like trees it is carbon neutral. <br>
+            <img src="TFDAssets/terraformerprocess.png" alt="terraformerprocess"> <br>
+            [Picture from <a href="https://terraformindustries.wordpress.com/2023/01/09/terraform-industries-whitepaper-2-0/">Terraform Industries Whitepaper 2.0</a>] <br>
+            <br>
+            The reason Terraform Industries believes this is a worthwhile machine to create is that: we need hydrocarbons to power our world, we need carbon neutrality
+            to combat climate change, and our current fossil fuel supply will eventually run out. <br>
+            <br>
+            <strong>Structure of this Article:</strong> <br>
+            The reason that I wrote about the energy supply and economics first is to motivate the problem.
+            Then, you can see why Terraformer is a necessary solution, and the science of how it works will stick better. At least
+            for me, having an updated world model helped with contextualizing the Terraformer into that model, so I wrote it the way
+            that makes sense to me.
+
+        </p>
+          
+        <h2 style="color: red;" id="2.">
+            2. Energy
+            <a href="#contents">🔝</a>
+        </h2>
+
+        <h3 style="color: blue;" id="2.1.">
+            2.1. Terraformer Unit Energies
+            <a href="#contents">🔝</a>
+        </h3>
+
+        <p>
+            So there are two energy amounts to understand to get a scale of the 
+            energy consumption of a 
+            <a href="https://terraformindustries.wordpress.com/2023/06/26/the-terraformer-mark-one/">Terraformer Mark One</a> 
+            unit: electrical energy from solar to power the unit 
+            and the thermal energy released from the synthesized natural gas. <br>
+            <br>
+            I will compute these quantities and then I'll show them in terms 
+            of a familiar energy unit: the amount of energy it takes to charge an 
+            iPhone, specifically the iPhone 14 Pro. Talking in terms of a Watt-second (Ws)
+            or Watt-hour (Wh) was a bit abstract for me, and I felt like talking in terms 
+            of the energy to fully charge an iPhone 14 Pro battery (iBat) was a bit more intuitive for me. <br>
+            <br>
+            Then I'll show you the equivalent natural gas output in terms of a Toyota Camry gas tank to get a scale of
+            the synthetic gas production. <br>
+            <br>
+            Prereqs to follow the calculations are only some basic physics concepts: 
+            Power = Energy / time, some dimensional analysis skills, etc.
+        </p>
+        <p>
+            <strong>The Terraformer Mark One in Wh:</strong> <br>
+            Unit's power consumption: <br>
+            <code>Energy to power the unit for one hour: 1MWh</code> [One Terrafomer unit is designed to work with a 1MW solar array to get its electrical energy]<br>
+            Unit's synthetic natural gas output: <br>
+            <code>Synthetic natural gas output in one hour: 1000ft<sup>3</sup></code> <br>
+            So now we'll want to convert the amount of natural gas we have to thermal energy, 
+            as this is the form of energy we can get from the chemical bonds in the gas through 
+            combustion. And thus thermal energy is useful b/c this is the intermediate form we convert 
+            to other useful forms, or keep as heating.<br>
+            Synthetic natural gas conversion to thermal energy: <br>
+            <code>1000ft<sup>3</sup> = 1038000 Btu</code> [<a href="https://www.eia.gov/tools/faqs/faq.php?id=45&t=8">source</a>]
+            [British thermal units (Btu) were created as a standardized measure of the thermal enegy that can be extracted from a fuel source through combustion] <br> 
+            <code>1038000 Btu = 304220 Wh</code> [1 Wh = 3.412142 Btu] <br>
+            Thus, we see the unit's thermal energy output: <br>
+            <code>Thermal energy in the form of synthetic natural gas outputted in one hour: .304MWh</code> <br>
+            So, we can calculate efficiency: <br>
+            <code>(Thermal energy output)/(Electric energy input) = .304MWh/1MWh = .304</code> <br>
+            Therefore, we have about a 30% efficiency. I'll explain in section 2.2 why we are fine with this.
+        </p>
+        <p>
+            <strong>The Terraformer Mark One in iBat:</strong> <br>
+            Using: <br>
+            <code>Electric energy input: 1MWh</code> <br>
+            <code>Thermal energy output: .304MWh</code> <br>
+            Setting up the metric that fully charging one iPhone 14 Pro battery is one iBat: <br>
+            <code>1 iBat = 12.38Wh</code> [<a href="https://en.wikipedia.org/wiki/IPhone_14_Pro#Detailed_specs">source</a>] <br>
+            Therefore we can see input/output energy in terms of iBats: <br>
+            <code>Electric energy input: 80775iBat</code> <br>
+            <code>Thermal energy output: 24556iBat</code> <br>
+            So we see that the energy required to run the Terraformer for an hour is equivalent to fully charging 
+            ~80000 iPhone 14 Pro batteries. And the thermal energy output in the form of synthetic natural gas we get 
+            from an hour of the Terraformer is equivalent to fully charging ~25000 iPhone 14 Pro batteries.
+        </p>
+        <p>
+            <strong>The Terraformer Mark One Compared to Car Gas Tanks:</strong> <br>
+            Using a Toyota Camry as a standard size gas tank: <br>
+            <code>Toyota Camry gas tank = 15.8gal of gasoline</code> [<a href="https://www.toyotaofanaheim.com/gas-tank-size-of-the-2022-toyota-camry/">source</a>]<br>
+            The thermal energy of this gas tank: <br>
+            <code>15.8gal * 125,000 Btu/gallon = 1.975million Btu</code> [<a href="https://www.bts.gov/content/energy-consumption-mode-transportation">source</a>] <br> 
+            Thus we can see how many gas tanks are filled per hour by the Terraformer: <br>
+            <code>1038000 Btu / 1975000 Btu = .52</code> [using our earlier result]<br>
+            Thus we see that the Terraformer produces about half a Camry gas tank per hour worth of hydrocarbons. <br>
+            Let's see what this is per year: <br>
+            <code>.52gastank/hr * 2190hr/yr = 1139gastank/yr</code> [Terraformer will run 2190hrs per year
+            (1/4 the year or 6hours a day) because solar power is effectively available only 1/4th the day, as
+            during the night there is no sunlight and during the day sunlight intensity varies] <br>
+            So we see that one Terraformer produces about 1139 Camry gas tanks per year worth of hydrocarbons.
+        </p>
+        <br>
+        <p>
+            So now we have an idea of the efficiency, some intuition for the energy, and some intuition
+            for the gas production of the Terraformer.
+        </p>
+
+        <h3 style="color: blue;" id="2.2.">
+            2.2. Global Energy Primer
+            <a href="#contents">🔝</a>
+        </h3>
+        <p>
+            The world needs energy to run, but where are we getting this energy from? <br>
+            <strong>Classifying Energy Sources:</strong> <br>
+            - Non-renewable sources <br>
+            &emsp;&emsp;- Fossil fuels <br>
+            &emsp;&emsp;&emsp;&emsp;- Coal <br>
+            &emsp;&emsp;&emsp;&emsp;- Natural gas <br>
+            &emsp;&emsp;&emsp;&emsp;- Oil <br>
+            &emsp;&emsp;- Nuclear <br>
+            - Renewable sources <br>
+            &emsp;&emsp;- Solar <br>
+            &emsp;&emsp;- Wind <br>
+            &emsp;&emsp;- Hydropower <br>
+            &emsp;&emsp;- etc. <br>
+        </p>
+        <p>
+            Non-renewable energy sources are conversions from stored mass to usable energy,
+            via chemical bonds (combustion) or mass defects (nuclear).
+            Renewables can be thought of as harvesting external energy flows (e.g. sunlight or wind).
+            While most renewable energy storage focuses on batteries, Terraform takes a different approach:
+            storing solar energy as synthetic hydrocarbons. [Fun note: On a universal timescale, no energy is renewable,
+            according to our understanding of entropy.]<br>
+            <br>
+            Hydrocarbons are substances with hydrogen-carbon bonds. We refer to them a lot because they
+            store a lot of energy in their chemical bonds, and we like releasing this energy in the form of
+            heat. Example of hydrocarbons are fossil fuels: coal, natural gas, oil. Hydrocarbons are incredibly
+            crucial to our energy supply, as I'll explain now. <br>
+            <br>
+            Ok, so you might ask: [question from "The Terraformer Mark One in Wh" section] why do we turn the already
+            useful form of electrical energy from solar into another form of energy (thermal energy from hydrocarbons),
+            especially if we are less efficient in doing so? Well the answer is essentially because energy <i>form</i> matters.
+            With hydrocarbons we can use it with the current infrastructure (automotives, heating, industrial, etc) that is
+            already built out so that we can decarbonize them, hydrocarbons are a direct store of energy (whereas solar needs
+            batteries), etc. So, Terraform Industries is essentially making the argument that even if we switch out fossil fuels
+            fully with solar power, there is still usefulness in hydrocarbons, so much so that being only 30% efficient with solar
+            energy is still worthwhile.
+        </p>
+        <strong>Global Primary Energy Consumption by Source:</strong>
+        <p>
+            Now that we have an overview of the classification of energy, let's begin to look at how
+            we use them.
+            <img src="TFDAssets/GlobalPrimaryEnergyConsumptionBySource.png" alt="GlobalPrimaryEnergyConsumptionBySource"> <br>
+            [Chart from <a href="https://ourworldindata.org/energy-production-consumption">Our World in Data</a>] <br>
+        </p>
+        <p>
+            So from this chart, we can see the total energy consumption of the world in 2023,
+            as well as the percentage each energy source contributed. <br>
+            <br>
+            <code>Total primary energy consumption in 2023: 183,230TWh</code> <br>
+            As a fun exercise lets conceptualize this in terms of iBats: <br>
+            <code>Total primary energy consumption in 2023: 183,230TWh / 12.38Wh = 1.48*10<sup>16</sup>iBats</code> <br>
+            Continuing on in terms of global population: <br>
+            <code>Total primary energy consumption in 2023 per person: 1.48*10<sup>16</sup>iBats / 8billion = 1.85 million iBats</code> <br>
+            Therefore the total primary energy consumption in 2023 per person would be as if each person was responsible
+            for fully charging approximately 1.85 million iPhone 14 Pros in a year. <br>
+            <br>
+            Now let's look at the energy sources we are interested in: <br>
+            <code>Total solar energy consumption in 2023: 4,264TWh</code> <br>
+            <code>Total fossil fuels energy consumption in 2023: 140,231TWh</code> <br>
+            Thus we see: <br>
+            <code>Solar percentage of total energy consumption in 2023: 2.3% </code> <br>
+            <code>Fossil fuels percentage of total energy consumption in 2023: 76.5% </code> <br>
+            So now we can use the fact that the Terraformer will run 2190hrs per year (1/4 the year or 6hours a day)
+            to then calculate how many Terraformers we would need to replace fossil fuels in 2023.
+            <code>Thermal energy output per year (in the form of synthetic gas): .304MWh * 2190 = 666MWh</code> <br>
+            <code>Number of Terraformers needed to replace fossil fuels in 2023: 140,231TWh / 666MWh = 210 million</code> <br>
+            Therefore, we see that we would need 210 million Terraformers to replace the fossil fuel industry in 2023. <br>
+            <br>
+            So let's see how much solar generated energy we would need to fuel these 210 million Terraformers for a year: <br>
+            <code>210 million Terraformers * 1MWh * 2190hours = 461,286TWh</code> <br>
+            This is a massive amount, it's 2.5x the total energy consumption in 2023 and 108x the total solar energy production in 2023.
+            It's time to build!
+        </p>
+
+        <h2 style="color: red;" id="3.">
+            3. Terrafomer and Energy Economics
+            <a href="#contents">🔝</a>
+        </h2>
+        <p>We now have a scale of the energies, let's attach some dollar values.</p>
+        <p>
+            Ok, let's start getting a sense of the dollar value. <br>
+            <strong>Home Energy Prices:</strong> <br>
+            I think it's useful to mention some residential electricity costs to have some reference.
+            I live in Georgia, so I'll use the average costs for electricity for a home here: <br>
+            <code>Average electric rate: $0.15/kWh</code> [<a href="https://www.energysage.com/local-data/electricity-cost/ga/">source</a>] <br>
+            <code>Average yearly electric bill: $2,544/yr</code> <br>
+            <code>Average yearly electric energy usage: 17000kWh</code> <br>
+            Using the iPhone battery analogy again: <br>
+            <code>Cost to fully charge an iPhone 14 Pro: 12.38Wh * $0.15/kWh = $.002</code> <br>
+            So, it only costs a fifth of a penny to fully charge an iPhone! You can check out the main
+            costs/usage of home electricity <a href="https://www.visualcapitalist.com/what-uses-the-most-energy-home/">here</a>. <br>
+            And for fun: <br>
+            <code>Yearly home energy usage in iPhone 14 Pro battery units: 1.37million iBats</code> <br>
+        </p>
+
+        <h3 style="color: blue;" id="3.1.">
+            3.1. Energy Economics
+            <a href="#contents">🔝</a>
+        </h3>
+        <p>
+            Now we have some idea that energy is important and our current energy
+            is mainly coming from fossil fuels. But, we want our future energy to
+            mainly come from solar instead of fossil fuels. So, if we want this to 
+            happen it needs to be economically feasible. If fossil fuels are still cheaper
+            than solar, there will not be enough of an incentive to change. Luckily for the world and
+            Terraform Industries the data shows that not only will solar be cheaper,
+            it will be radically cheaper, so much so that we can use the energy inefficient
+            (~30% as calculated earlier) Terraformer to replace our
+            current fossil fuel industry, as the Terrafomer synthesized
+            hydrocarbons will be cheaper than fossil fuels. Batteries are also getting cheaper,
+            which is important because we will need this to have an electric grid that can sustain
+            solar's intermittency or else solar won't actually be cheaper than fossil fuels,
+            as the grid won't handle our current usage (I'll explain this more later).
+        </p>
+        <p>
+            Ok, let's look at current energy economic trends. To do this we need a
+            standardized way to compare costs of different energy sources. Thus we use the
+            levelized cost of energy (LCOE). <br>
+            <strong>LCOE:</strong> <br>
+            The LCOE of an energy source is defined as the sum of lifetime costs (cost to build and maintain the plants) divided by the
+            sum of lifetime electrical energy produced. It can be thought of as the average cost
+            per unit energy (e.g. units of $/kWh). <br>
+            <img src="TFDAssets/lcoe.png" alt="lcoe"> <br>
+            [Picture from <a href="https://en.wikipedia.org/wiki/Levelized_cost_of_electricity">Wikipedia</a>] <br>
+            <br>
+            Illustrative example of using LCOE: if an LCOE for energy A is $5/kWh and an LCOE for energy B is $3/kWh,
+            then energy A is a more expensive energy source than energy B, because we are spending more per kwh for A than B.
+            Thus we are always looking for the lowest LCOE. <br>
+            <br>
+            Note: LCOE is dependent on the scale of the energy you are producing, where it is typically cheaper for a larger power plant.
+            So generally you are going to want to have a bigger plant to have a reduced LCOE. Economies of scale basically dictate that bigger
+            means cheaper per unit. But we just keep this in mind and will compare a 10MW coal plant to a 10MW solar plant, or a 10kW coal plant
+            to a 10kW solar plant, etc. <br>
+            <br>
+            So, reiterating, the reason we use LCOE instead of just cost per unit energy is to factor in the cost
+            required to build and maintain the physical infrastructure that generates the power.
+        </p>
+        <p>
+            <strong>Energy Trends:</strong> <br>
+            Essentially: <br>
+            - currently, electricity from solar is cheaper than from fossil fuels <br>
+            - the cost at which solar is falling is much more drastic than fossil fuels,
+            which are comparably flat. <br>
+            <br>
+            The data for this is from Our World in Data, and you can read more about this <a href="https://ourworldindata.org/cheap-renewables-growth">there</a>
+            (in there, they talk more about learning curves, which are the explanatory model that
+            predicts these cost changes, which I will mention soon). <br>
+            <br>
+            Here we can see the trend illustrated:
+            <img src="TFDAssets/The price of electricity from new power plants (2009 to 2024).png" alt="The price of electricity from new power plants (2009 to 2024)" width="510" height="657">
+            <br>
+            From this graph we see: <br>
+            <code>Cost of electricity from Solar PV: $60/MWh</code> <br>
+            <code>Cost of electricity from Coal: $115/MWh</code> <br>
+            Showing that solar is less expensive per than coal. <br>
+            For reference, here's the residential prices from earlier to compare: <br>
+            <code>Average electric rate: $0.15/kWh = $150/MWh</code> <br>
+            <br>
+            To understand these trends, its necessary to understand the learning curve effect.
+            The learning curve effect basically states that as people or organizations repeat a task,
+            they learn how to do it better, faster, and cheaper. This is happening in solar and batteries,
+            but not in fossil fuels. This is the <i>fundamental reason</i> why Terraform Industries is going
+            to succeed. <br>
+            <br>
+            Ok so we see that solar is cheaper, so we should build that out, but building takes time and money, so we can't overnight ditch fossil fuels.
+            Are there any other impediments to a fully solar energy grid? Yes, there are and it has to do with
+            the intermittency of solar. Solar is too irregular a power supply, but we need our grid to be more
+            stable, so the solution is batteries (which is why batteries following learning curves is necessary), which we will
+            talk about in the next section.
+        </p>
+        <p>
+            <strong>Battery Trends:</strong> <br>
+            The grid today needs massive battery buildout because it is not
+            built for the intermittency of solar (and other renewables). But, the falling
+            prices of batteries allows this to be economically feasible, where the combination
+            of solar+batteries for electricity will be cheaper than fossil fuel electricity. <br>
+            <br>
+            Here we can see the trends of falling battery prices: <br>
+            <img src="TFDAssets/Battery-cost-learning-curve.png" alt="Battery-cost-learning-curve" width="532" height="632">
+        </p>
+        <p>
+            <strong>Summarizing:</strong> <br>
+            So essentially we see that Terraform Industries is making a bet
+            on solar energy + batteries. And the trends seem to indicate that
+            this will be profitable. <br>
+        </p>
+        <h3 style="color: blue;" id="3.2.">
+            3.2. Terraformer Module Economics
+            <a href="#contents">🔝</a>
+        </h3>
+        <p>
+            Ok so we can see the Terraformer unit economics from <a href="https://terraformindustries.wordpress.com/2023/01/09/terraform-industries-whitepaper-2-0/">Terraform Industries Whitepaper 2.0</a>: <br>
+        </p>
+        <blockquote>
+            "Each 1 MW module produces around 6.5 kcf (thousand cubic feet) of natural gas per day (assuming 25% utilization or 6 hours of sun per day), so at a gas price of $10/kcf, each module produces $65/day of revenue, or $24,500/year."
+        </blockquote>
+        <blockquote>
+            "With 5 year module lifetimes, each module will generate $119,000 in revenue ($656,000 including IRA incentives) against capex of $30,000 for the module and $16,000 for 1/6 of the 1 MW solar farm. Even including interest and maintenance costs, this margin is significantly healthier than existing fossil fuel production, and Terraform is well positioned to capture value from the raw commodity stream as well as module manufacturing."
+        </blockquote>
+        <p>
+            <strong>Financial Primer:</strong> <br>
+            - Total Cost: Capex + Opex <br>
+            - CapEx vs OpEx: Capex is capital expenditures, it refers to cost of
+            buying longer term assets. Opex is operating expenditures, it refers
+            to day-to-day costs with maintaing assets.<br>
+            - Revenue: How much income is generated from sales. <br>
+            - Net Profit: Revenue - Total Costs
+        </p>
+        <p>
+            <strong>Profit Breakdown of One Module using the Whitepaper:</strong> <br>
+            <code>Lifetime: 5yrs</code> <br>
+            Capex: <br>
+            <code>Cost to build one module: $30,000</code> <br>
+            <code>Cost of 1/6th of 1MW Solar panel: $16,000</code> [Here I'm assuming
+            they are using the lifetime of 1MW solar panel at 30yrs, and splitting that
+            among 6 five-yr Terraformers, thus the total cost of a 1MW solar array is $96,000]<br>
+            <code>Total Capex for a 5yr unit: $30,000 + $16,000 = $48,000</code> <br>
+            Opex: <br>
+            <code>Total Opex for a 5yr unit: not specified, assumed to be not large enough to disrupt price calculations</code> <br>
+            Revenue: <br>
+            <code>Gas production per day: 6.5 kcf</code> <br>
+            <code>Price of gas produced per day: 6.5 kcf * $10/kcf = $65</code>
+            <code>Price of gas over 5 years: $65/day * 365day/yr * 5yr = $118,625</code> [~$190,000] <br>
+            Net Profit: <br>
+            <code>Net Profit = Revenue - Total Costs : $190,000 - ($48,000 + opex) = $71000 - opex</code>
+        </p>
+        <p>
+            Note: I've ignored subsidies, as they believe their financials are solid even without them,
+            but with the subsidies, they are in a much healthier position.
+        </p>
+        <p>
+            They believe this positions them well financially to capture the hydrocarbons market.
+        </p>
+        <p>
+            Check out the Whitepaper for more in depth economics and the Total Addressable Market (TAM).
+        </p>
+
+        <h2 style="color: red;" id="4.">
+            4. How Terraformer Actually Works
+            <a href="#contents">🔝</a>
+        </h2>
+        <p>
+            Now that we've contextualized how Terraformer will fit in the global energy supply and economy,
+            let's get on to explaining how a Terraformer works.
+        </p>
+
+    </article>
+</body>
+</html>
