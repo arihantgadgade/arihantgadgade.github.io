@@ -8,6 +8,7 @@
 </head>
 <body>
     <article class="article">
+        <p style="color: red;">IN PROGRESS</p>
         <h1>Terraformer Research Project Writeup</h1>
         <p>
             <a href="../../../index.html">Arihant Gadgade</a> <br>
@@ -15,9 +16,221 @@
             Date Published: 5/12/2025<br>
         </p>
 
+                <h3 id="contents">Contents</h3>
+        <ul>
+            <li><a href="#1."><strong>1. Introduction:</strong></a> INSERT HERE</li>
+            <li>
+                <a href="#2."><strong>2. Direct Air Capture:</strong></a> INSERT HERE
+                <ul>
+                    <li><a href="#2.1."><strong>2.1. Purpose</strong></a></li>
+                    <li><a href="#2.2."><strong>2.2. Overview of Science and Processes</strong></a></li>
+                    <li><a href="#2.3."><strong>2.3. Designing the DAC</strong></a></li>
+                    <li><a href="#2.4."><strong>2.4. Experiments</strong></a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 style="color: red;" id="1.">
+            1. Introduction
+            <a href="#contents">🔝</a>
+        </h2>
         <p>
-            Coming soon...
+            <img src="TRPWAssets/TerIndChemicalDiagram.png" alt="chemdiag">
+            [Chemical Rxn Diagrams from Terraform Industries <a href="https://terraformindustries.com/">website</a>]
         </p>
+
+        <h2 style="color: red;" id="2.">
+            2. Direct Air Capture
+            <a href="#contents">🔝</a>
+        </h2>
+
+        <h3 style="color: blue;" id="2.1.">
+            2.1. Purpose
+            <a href="#contents">🔝</a>
+        </h3>
+        <p>
+            Direct air capture (DAC) is how we are performing carbon capture. 
+            We need carbon dioxide and hydrogen to create the methane, and thus this
+            DAC is used to get the CO<sub>2</sub>.
+        </p>
+
+        <h3 style="color: blue;" id="2.2.">
+            2.2. Overview of Science and Processes
+            <a href="#contents">🔝</a>
+        </h3>
+        <p>
+            Simply: air goes in, then CO<sub>2</sub> from the air is removed,
+            the rest of the air leaves, and the captured CO<sub>2</sub>
+            is sent for methanation. <br>
+            Breaking this into parts: <br>
+            1. Air goes in: achieved with fans <br>
+            2. CO<sub>2</sub> from the air is removed: carbonation using calcium hydroxide <br>
+            3. Captured CO<sub>2</sub> is sent for methanation: calcination using kilns <br>
+            Steps 2 and 3 are part of the lime cycle. <br>
+            <br>
+            <strong>Lime Cycle:</strong> <br>
+            <img src="TRPWAssets/The_lime_cycle.jpg" alt="limecycle">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/0kZXFvI4kCU?si=_Joz-eVyRmJl8Meo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> <br>
+            The lime cycle is useful for understanding calcium looping which is the backbone of our DAC. <br>
+            <br>
+            <strong>Calcium Looping:</strong> <br>
+            <code>Slaking: CaO(s) + H<sub>2</sub>O(g) -> Ca(OH)<sub>2</sub>(s) &Delta;H = -110.2 kJ/mol</code> [enthalpy change calculated using standard enthalpy of formation sourced from the Wikipedia page of each of these compounds]<br>
+            <code>Carbonation: Ca(OH)<sub>2</sub>(s) + CO<sub>2</sub>(g) -> CaCO<sub>3</sub>(s) + H<sub>2</sub>O(g) &Delta;H = -68.3 kJ/mol</code> <br>
+            <code>Calcination: CaCO<sub>3</sub>(s) -> CaO(s) + CO<sub>2</sub>(g) &Delta;H = +178.5 kJ/mol</code> <br>
+            This resulting CaO is then looped back into the first reaction,
+            and the process repeats. <br>
+            <br>
+            Should be noted that CaO degrades over time:
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0360128509000574?via%3Dihub">source</a> <br>
+            So, as the CaO is not infinitely reusable, this must be accounted for in the design of the DAC. <br>
+            <br>
+            <strong>Sorbents:</strong> <br>
+            The process of carbonation uses calcium hydroxide as a sorbent for absorbing carbon dioxide. <br>
+            <br>
+            Map of sorption: <br>
+            Sorption: process by which one substance becomes attached to another <br>
+            &emsp;&emsp;- Adsorption: substance taken up by the surface of another <br>
+            &emsp;&emsp;&emsp;&emsp;- Physisorption <br>
+            &emsp;&emsp;&emsp;&emsp;- Chemisorption <br>
+            &emsp;&emsp;- Absorption: substance taken up by the bulk phase of another <br>
+            &emsp;&emsp;&emsp;&emsp;- Physical Absorption <br>
+            &emsp;&emsp;&emsp;&emsp;- Chemical Absorption <br>
+            <br>
+            In this map, carbonation using calcium hydroxide is under chemical absorption.
+            Carbon dioxide is taken up by the bulk phase of the calcium hydroxide, in turn producing
+            calcium carbonate and water. Our DAC system will have to facilitate this absorption, which
+            we'll do with a fluidized bed. <br>
+            <br>
+            <strong>Kilns:</strong> <br>
+            Let's look at the temperature needed to run the calcination.
+            To do this we'll use the Gibbs free energy. <br>
+            <code>&Delta;G&deg; = &Delta;H&deg; - T&Delta;S&deg;</code> <br>
+            We already have the enthalpy change of the reaction (+178.5 kJ/mol),
+            we only need the entropy change. <br>
+            <code>&Delta;S = (40 + 214) - 93 J/(K*mol) = 161 J/(K*mol)</code> [Std molar entropy sourced from wiki]<br>
+            Solving for equilibrium temp: <br>
+            <code>&Delta;G&deg; &le; 0 &rArr; T<sub>eq</sub>=&Delta;H&deg;/&Delta;S&deg; = 178000/161 = 1109 K = 836&deg;C</code> <br>
+            Thus, the temperature to run the kiln for calcination is: <br>
+            <code>T &ge; 836&deg;C</code> <br>
+            We'll probably want to run the kilns at 850-900&deg;C for a healthy driving force.
+            However, running above 950&deg;C will contribute to sintering, decreasing the life of our sorbent. <br>
+            <br>
+            Let's look at the kilns they are using:
+            <blockquote>
+                "In the kiln area we have 5 kW and 15 kW commercial grade pottery kilns, as well as a production prototype 60 kW calcination oven (“the toaster”). Its design differs substantially from the kilns as its material can be contained in long, flat shapes that have better heat transfer properties."
+            </blockquote>
+            <img src="TRPWAssets/kilns.png" alt="kilns">
+            [Taken from TI Whitepaper 2.0] <br>
+            ***I believe "the toaster" is on the pallet on the left of the image.
+        </p>
+        <h3 style="color: blue;" id="2.3.">
+            2.3. Designing the DAC
+            <a href="#contents">🔝</a>
+        </h3>
+        <p>
+            [Disclaimer: I am just trying to recreate the system from what they've published as there isn't an exact blueprint to follow, so there may be innacuracies.] <br>
+            Ok, so now we've went over the science we can start trying to design the system.
+            They gave an overview of the calcium concentration cycle in their
+            first whitepaper (so their design might've changed), and I'll base the schematics off that.
+            <img src="TRPWAssets/dac.png" alt="dac">
+            [Image from: <a href="https://terraformindustries.wordpress.com/2022/07/24/terraform-industries-whitepaper/">TI Whitepaper</a>] <br>
+            <br>
+            <strong>Rough Diagram:</strong> <br>
+            <img src="TRPWAssets/DACdiagram.png" alt="DACdiagram">
+            In this diagram we see the humidifier, CO<sub>2</sub> absorption bed, dehydrator, and calciner.
+            The humidifier can arguably be incorporated into the absorption bed. The processes we see from the
+            lime cycle (calcium looping) are the calcination in the calciner and the slaking and carbonation simultaneously in
+            the CO<sub>2</sub> absorption bed. We can also see this unit is not 1:1 with the lime cycle we discussed
+            earlier. <br>
+            <br>
+            I haven't included it, but there should also be some mechanism for new calcium carbonate to be fed in as the calcium oxide
+            degrades. <br>
+            <br>
+            <strong>DAC as a Chemical Reactor:</strong> <br>
+            Overview Map of Chemical Reactors: <br>
+            &emsp;&emsp;- Batch Reactors <br>
+            &emsp;&emsp;- Semi-Batch Reactors <br>
+            &emsp;&emsp;- Continuous Reactors <br>
+            &emsp;&emsp;&emsp;&emsp;- Plug-Flow Reactors <br>
+            &emsp;&emsp;&emsp;&emsp;- Continuous Stirred Tank Reactors (CSTR) <br>
+            &emsp;&emsp;&emsp;&emsp;- Fluidized-Bed Reactors <br>
+            <br>
+            They stated this cycle can be performed with continuous or batch material processing machinery,
+            but for these purposes I am considering this as a continuous reactor. The calciner and pre-calciner subunits
+            behave as plug-flow reactors, and the absortion bed behaves as a fluidied-bed reactor. Thus, the whole unit is acting
+            as a continuous reactor.<br>
+            <br>
+            Fluidization test image from TI Whitepaper 2.0:
+            <img src="TRPWAssets/fluidizationtest.png" alt="kilns">
+            Here we see in the red, the sorbent being fluidized, with gas presumably coming up through the floor of the bed. <br>
+            <br>
+            <strong>DAC CAD:</strong> <br>
+            [DAC CAD is a palindrome] <br>
+            Here I'm going to show a CAD model of a DAC using the schematics above.
+        </p>
+
+        <h3 style="color: blue;" id="2.4.">
+            2.4. Experiments
+            <a href="#contents">🔝</a>
+        </h3>
+        <p>
+            - kiln is too expensive, so I will be doing budget carbon capture <br>
+            - experiments: chemical rxns of the lime cycle, building carbon capture systems
+        </p>
+
+        <h3 style="color: blue;" id="2.5.">
+            2.5. Fluid Dynamics
+            <a href="#contents">🔝</a>
+        </h3>
+
+        <h3 style="color: blue;" id="2.6.">
+            2.6. Extra
+            <a href="#contents">🔝</a>
+        </h3>
+        <p>
+            - all types of carbon capture <br>
+            <br>
+            <strong>Mathematica</strong> <br>
+            Playing around with Mathematica to visualize the chemical structure
+            of the species in the calcium looping rxns: <br>
+            <img src="TRPWAssets/mathematicacarbonlooping.png" alt="mathematicacarbonlooping">
+            Note: Mathematica displays ionic formulae as separate fragments unless you draw a bond. <br>
+            <br>
+            And 3D as well:
+            <img src="TRPWAssets/mathematicacarbonlooping3D.png" alt="mathematicacarbonlooping3D">
+            <br>
+            <strong>Limestone Quarry:</strong> <br>
+            Videos showing limestone quarries:
+            <a href="https://youtu.be/u4zIK0ScrS0?si=S2y9_tyPEaRqwUbG">video1</a>,
+            <a href="https://youtu.be/_w_07xr7JI8?si=f3f2CtoPDlHjbJ69">video2</a>,
+            <a href="https://youtu.be/h2wAl04oGkw?si=uBp4d8Jpkg-VfTPf">video3</a> <br>
+            <br>
+            <strong>Fun Veritasium Concrete Vid:</strong> <br>
+            Limestone (mainly CaCO<sub>3</sub>) is the primary component used to make cement/concrete,
+            and it mainly comes from ancient sealife. Thus the fun quote: "skyscrapers are made from seashells" which
+            can be seen in this 
+            <a href="https://youtu.be/rWVAzS5duAs?si=OfW1eheqmOV1JePD&t=1216">Veritasium video</a>. <br>
+            <br>
+            <strong>Cracking CO<sub>2</sub>:</strong> <br>
+            Considering how the majority of the energy demand for the Terraformer comes from
+            the electrolyzer, and the goals of TI are to solve climate change profitably, it may
+            be worthwhile to looking into cracking CO<sub>2</sub>. Cracking CO<sub>2</sub> gives
+            us the elemental carbon and oxygen. Carbon is quite useful, so if we could find a way
+            to economically produce carbon from captured CO<sub>2</sub>, then we've found a way to make a
+            profitable carbon negative process, as opposed to just the carbon neutrality of the
+            current Terraformer. However CO<sub>2</sub> is quite stable, so further analysis is needed.
+
+        </p>
+
+        <h2 style="color: red;" id="3.">
+            3. Electrolyzer
+            <a href="#contents">🔝</a>
+        </h2>
+
+        <h2 style="color: red;" id="4.">
+            4. Methanation
+            <a href="#contents">🔝</a>
+        </h2>
 
     </article>
 </body>
