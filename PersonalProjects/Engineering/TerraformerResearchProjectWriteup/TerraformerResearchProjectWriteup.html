@@ -18,14 +18,29 @@
 
                 <h3 id="contents">Contents</h3>
         <ul>
-            <li><a href="#1."><strong>1. Introduction:</strong></a> INSERT HERE</li>
+            <li><a href="#1."><strong>1. Introduction</strong></a></li>
             <li>
-                <a href="#2."><strong>2. Direct Air Capture:</strong></a> INSERT HERE
+                <a href="#2."><strong>2. Direct Air Capture</strong></a>
                 <ul>
                     <li><a href="#2.1."><strong>2.1. Purpose</strong></a></li>
                     <li><a href="#2.2."><strong>2.2. Overview of Science and Processes</strong></a></li>
                     <li><a href="#2.3."><strong>2.3. Designing the DAC</strong></a></li>
-                    <li><a href="#2.4."><strong>2.4. Experiments</strong></a></li>
+                    <li><a href="#2.4."><strong>2.4. Experiment</strong></a></li>
+                    <li><a href="#2.5."><strong>2.5. Extra</strong></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#3."><strong>3. Electrolyzer</strong></a>
+                <ul>
+                    <li><a href="#3.1."><strong>3.1. Purpose</strong></a></li>
+                    <li><a href="#3.2."><strong>3.2. Overview of Science and Processes</strong></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#4."><strong>4. Methanation</strong></a>
+                <ul>
+                    <li><a href="#4.1."><strong>4.1. Purpose</strong></a></li>
+                    <li><a href="#4.2."><strong>4.2. Overview of Science and Processes</strong></a></li>
                 </ul>
             </li>
         </ul>
@@ -140,7 +155,7 @@
             In this diagram we see the humidifier, CO<sub>2</sub> absorption bed, dehydrator, and calciner.
             The humidifier can arguably be incorporated into the absorption bed. The processes we see from the
             lime cycle (calcium looping) are the calcination in the calciner and the slaking and carbonation simultaneously in
-            the CO<sub>2</sub> absorption bed. We can also see this unit is not 1:1 with the lime cycle we discussed
+            the CO<sub>2</sub> absorption bed. We can also see this unit's rxns are not 1:1 with the lime cycle we discussed
             earlier. <br>
             <br>
             I haven't included it, but there should also be some mechanism for new calcium carbonate to be fed in as the calcium oxide
@@ -157,40 +172,169 @@
             <br>
             They stated this cycle can be performed with continuous or batch material processing machinery,
             but for these purposes I am considering this as a continuous reactor. The calciner and pre-calciner subunits
-            behave as plug-flow reactors, and the absortion bed behaves as a fluidied-bed reactor. Thus, the whole unit is acting
+            behave as plug-flow reactors, and the absortion bed behaves as a fluidized-bed reactor. Thus, the whole unit is acting
             as a continuous reactor.<br>
             <br>
             Fluidization test image from TI Whitepaper 2.0:
             <img src="TRPWAssets/fluidizationtest.png" alt="kilns">
             Here we see in the red, the sorbent being fluidized, with gas presumably coming up through the floor of the bed. <br>
             <br>
-            <strong>DAC CAD:</strong> <br>
-            [DAC CAD is a palindrome] <br>
-            Here I'm going to show a CAD model of a DAC using the schematics above.
         </p>
 
         <h3 style="color: blue;" id="2.4.">
-            2.4. Experiments
+            2.4. Experiment
             <a href="#contents">🔝</a>
         </h3>
         <p>
-            - kiln is too expensive, so I will be doing budget carbon capture <br>
-            - experiments: chemical rxns of the lime cycle, building carbon capture systems
+            I had the idea to create a mini carbon capture unit, as the fundamental chemical rxns are quite
+            simple. I initially considered just making a mini fluidized bed, but figured that would be overkill for
+            a first attempt, and decided to just try to do simple carbonation of calcium hydroxide with the captured air. In researching 
+            this, I found there were some open source attempts at doing so, one that stood out was
+            <a href="">OpenAir Cyan</a>
+            by Dahl Winters. Cyan uses the similar chemical rxn I was planning on doing. While researching, I saw that
+            to facilitate the rxn, having the relative humidity be high allowed faster rxn rates. I was considering
+            using a humidifier (steam or ultrasonic) and fan system, but found Cyan's approach to be quite good. Cyan
+            uses an aquarium bubbler and airstone in a reservoir of water to increase the humidity. This solution was
+            quite useful because the bubbler diffuses the captured air and water into the unit's air, which allows me to 
+            not have to worry about the fan system (unless I cared about drying).
+        </p>
+        <p>
+            <strong>Experiment Outline:</strong> <br>
+            1. Design and build a reaction chamber that carbonates calcium hydroxide with captured CO<sub>2</sub> <br>
+            2. Run the rxn chamber <br>
+            3. Calculate captured CO<sub>2</sub> <br>
+            4. Analyze how much carbon was offset by comparing the captured CO<sub>2</sub>
+            to the carbon footprint of the electricity used <br>
+        </p>
+        <p>
+            <strong>Materials:</strong> <br>
+            - 3D printed rxn chamber container <br>
+            - Aquarium air pump <br>
+            - Air stone and tubing <br>
+            - Calcium hydroxide <br>
+            - Coffee filter <br>
+            - Distilled water <br>
+        </p>
+        <p>
+            <strong>DAC CAD:</strong> <br>
+            [Fun: DAC CAD is a palindrome] <br>
+            Here's a CAD model of the reaction chamber for the DAC: <br>
+            <img src="TRPWAssets/bin.png" alt="bin">
+            <img src="TRPWAssets/lid.png" alt="lid">
+            It's a simple container that allows for the tubing of the air bubbler to enter,
+            a shelf for the calcium hydroxide to lie, and a tiny hole in the lid for air to escape.
+        </p>
+        <p>
+            <strong>DAC Unit:</strong> <br>
+            Here's images of the 3D printed DAC reaction chamber: <br>
+            <img src="TRPWAssets/DACexp1.png" width="300" height="400">
+            <img src="TRPWAssets/DACexp2.png" width="300" height="400">
+            Here we see the bubbler, the bubbler tubing being fed in the rxn chamber, and the attached airstone:<br>
+            <img src="TRPWAssets/DACexp3.png" width="300" height="400">
+        </p>
+        <p>
+            <strong>Running the Experiment:</strong> <br>
+            1. I measured out 5g of calcium hydroxide <br>
+            <img src="TRPWAssets/exp4.png" width="300" height="400">
+            2. I let it run for 6hrs. <br>
+            Visual of what's occuring inside the reaction chamber:
+            <img src="TRPWAssets/exp5.png" width="400" height="300">
+            Closed and running rxn chamber:
+            <img src="TRPWAssets/exp6.png" width="300" height="400">
+            3. With the air pump off, I let the solid mass dry overnight in the
+            humidified rxn chamber (14hrs). [This process is quite similar to recarbonation
+            of cured concrete, where calcium hydroxide reuptakes CO<sub>2</sub>]<br>
+            Here's the weight of the hydrated solid mass, immediately after taking it out of the rxn chamber:
+            <img src="TRPWAssets/exp7.png" width="300" height="400">
+            4. After letting it dry overnight, I then let it air dry outside of the DAC to thoroughly
+            evaporate all the water for one day. <br>
+            Here's the weight of the dehydrated solid mass:
+            <img src="TRPWAssets/exp8.png" width="300" height="400">
+            Note the change in texture of the solid mass from fine to clumpy. <br>
+        </p>
+        <p>
+            <strong>Results:</strong> <br>
+            Remeasuring the powder gives us: <br>
+            <code>Final solid mass: 5.751g</code> <br>
+            <code>Solid mass change: 5.751g - 5g = .751g</code>
+
+            <br>
+            
+            <br>
+            
+        </p>
+        <p>
+            <strong>Analysis:</strong> <br>
+            First, we want to find out how much CO<sub>2</sub> was captured. <br>
+            <br>
+            To start, here's the rxn governing the CO<sub>2</sub> uptake: <br>
+            <code>Carbonation: Ca(OH)<sub>2</sub>(s) + CO<sub>2</sub>(g) -> CaCO<sub>3</sub>(s) + H<sub>2</sub>O(g)</code> <br>
+            Analyzing this rxn necessitates calculating molar mass: <br>
+            <code>Calcium atomic mass: 40.08u</code> <br>
+            <code>Oxygen atomic mass: 15.999u</code> <br>
+            <code>Hydrogen atomic mass: 1.008u</code> <br>
+            <code>Carbon atomic mass: 12.011u</code> <br>
+            <code>Ca(OH)<sub>2</sub> molar mass: 1*(40.08) + 2*(15.999 + 1.008) = 74.094 g/mol</code><br>
+            <code>CO<sub>2</sub> molar mass: 1*(12.011) + 2*(15.999) = 44.009 g/mol</code><br>
+            <code>CaCO<sub>3</sub> molar mass: 1*(40.08) + 1*(12.011) + 3*(15.999) = 100.088 g/mol</code> <br>
+            <code>H<sub>2</sub>O molar mass: 2*(1.008) + 1*(15.999) = 18.015 g/mol</code> <br>
+            Gain in solid mass: <br>
+            <code>(CaCO<sub>3</sub> molar mass) - (Ca(OH)<sub>2</sub> molar mass): 100.088 - 74.094 = 25.994 g/mol</code><br>
+            Each mole of rxn also consumes one mole of CO<sub>2</sub>, so we can find a ratio to measure CO<sub>2</sub> uptake: <br>
+            <code>(CO<sub>2</sub> molar mass) / (Gain in solid mass): 44.009 / 25.994 = 1.693</code> <br>
+            Thus, for every gram of gain in solid mass, 1.693g of CO<sub>2</sub> is uptaken. <br>
+            <br>
+            <u>So, we uptook 1.271g of CO<sub>2</sub> because we had a solid mass change of .751g.</u> <br>
+            <br>
+            Theoretical CO2 capture: <br>
+            Solid mass ratio: <br>
+            <code>(CaCO<sub>3</sub> molar mass) / (Ca(OH)<sub>2</sub> molar mass) = 100.088 / 74.094 = 1.351</code> <br>
+            Thus, now we can see what the theoretical CaCO<sub>3</sub> weight will be if all the Ca(OH)<sub>2</sub> reacts: <br>
+            <code>5g Ca(OH)<sub>2</sub> * 1.351 = 6.754g CaCO<sub>3</sub></code> <br>
+            So we have a solid mass change of 1.754g, thus the theoretical mass of CO<sub>2</sub> to be uptaken is: <br>
+            <code>Theoretical CO<sub>2</sub> uptake: 1.754g * 1.693 = 2.97g CO<sub>2</sub></code> <br>
+            Comparing that to the experimental CO<sub>2</sub> uptake: <br>
+            <code>1.27 / 2.97 = 42.7%</code> <br>
+            Thus an efficiency of 42.7% was achieved.<br>
+            <br>
+            Now let's compare the carbon we uptook to the amount used in electricity to run the air pump.
+            This allows us to analyze whether we are carbon negative or not. <br>
+            <code>Air pump electric usage: 2.9W</code> <br>
+            <code>Hours air pump ran: 6 hr</code> <br>
+            Thus: <br>
+            <code>Total electrical energy used: 17.4 Wh</code> <br>
+            Calculating the CO<sub>2</sub> used for this electricity: <br>
+            <code>Total output (baseload) emission rate: 893.3 (lb CO<sub>2</sub>/MWh)</code> [<a href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references">source</a>] <br>
+            Converting it to g/Wh: <br>
+            <code>Total output (baseload) emission rate: 0.405 (g CO<sub>2</sub>/Wh)</code> <br>
+            Thus the amount of CO<sub>2</sub> used running this DAC was: <br>
+            <code>17.4 Wh * 0.405 (g CO<sub>2</sub>/Wh) = 7.047g CO<sub>2</sub></code> <br>
+            Thus comparing this to the 1.27g of CO<sub>2</sub> captured we are not net negative carbon.
+        </p>
+        <p>
+            <strong>Discussion:</strong> <br>
+            I believe an easy way I could have optimized this to get to net negative would be to
+            make a bigger DAC (allowing for more calcium hydroxide to be carbonated) or run the
+            air pump for much less. They had a kiln at my school (in the material science makerspace), but it was unavailable,
+            otherwise I could try to calcinate the powder and capture the CO<sub>2</sub>. <br>
         </p>
 
         <h3 style="color: blue;" id="2.5.">
-            2.5. Fluid Dynamics
-            <a href="#contents">🔝</a>
-        </h3>
-
-        <h3 style="color: blue;" id="2.6.">
-            2.6. Extra
+            2.5. Extra
             <a href="#contents">🔝</a>
         </h3>
         <p>
-            - all types of carbon capture <br>
+            <strong>Overview of Carbon Capture Methods:</strong> <br>
+            1. Point Source Capture: Captures CO<sub>2</sub> directly from concentrated emissions (e.g., power plants, industrial boilers) before it enters the atmosphere<br>
+            2. Direct Air Capture (DAC): Extracts CO<sub>2</sub> from atmosphere (~415 ppm)<br>
+            3. Bio Based Capture: Leveraging biological processes to capture and store carbon <br>
+            4. Mineralization & Weathering: Locks CO<sub>2</sub> into stable carbonate minerals, mimicking natural rock weathering but on accelerated timescales<br>
+            5. Ocean Based Approaches: Manipulate seawater chemistry to increase its capacity to absorb and store CO<sub>2</sub> <br>
+            6. Utilization (CCU): Transforms captured CO<sub>2</sub> into valuable products <br>
             <br>
-            <strong>Mathematica</strong> <br>
+            Terraformer uses a combo of 2 and 6. (And 4 as an intermediary) <br>
+            <br>
+            <strong>Mathematica:</strong> <br>
             Playing around with Mathematica to visualize the chemical structure
             of the species in the calcium looping rxns: <br>
             <img src="TRPWAssets/mathematicacarbonlooping.png" alt="mathematicacarbonlooping">
@@ -226,11 +370,40 @@
             3. Electrolyzer
             <a href="#contents">🔝</a>
         </h2>
+        <h3 style="color: blue;" id="3.1.">
+            3.1. Purpose
+            <a href="#contents">🔝</a>
+        </h3>
+        <p>
+            Electrolysis is how we are producing H<sub>2</sub>. 
+            We need carbon dioxide and hydrogen to create the methane, and thus this
+            electrolyzer is used for producing H<sub>2</sub> from H<sub>2</sub>O.
+        </p>
+        <h3 style="color: blue;" id="3.2.">
+            3.2. Overview of Science and Processes
+            <a href="#contents">🔝</a>
+        </h3>
+        <p>
+            We get to electrolysis from redox rxns and electrochemistry:
+            <img src="TRPWAssets/electrochem.png" alt="electrochem">
+        </p>
+
 
         <h2 style="color: red;" id="4.">
             4. Methanation
             <a href="#contents">🔝</a>
         </h2>
+        <h3 style="color: blue;" id="4.1.">
+            4.1. Purpose
+            <a href="#contents">🔝</a>
+        </h3>
+        <p>
+            
+        </p>
+        <h3 style="color: blue;" id="4.2.">
+            4.2. Overview of Science and Processes
+            <a href="#contents">🔝</a>
+        </h3>
 
     </article>
 </body>
