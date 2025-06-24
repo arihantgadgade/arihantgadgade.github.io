@@ -8,7 +8,6 @@
 </head>
 <body>
     <article class="article">
-        <p style="color: red;">IN PROGRESS</p>
         <h1>Terraformer Research Project Writeup</h1>
         <p>
             <a href="../../../index.html">Arihant Gadgade</a> <br>
@@ -34,6 +33,7 @@
                 <ul>
                     <li><a href="#3.1."><strong>3.1. Purpose</strong></a></li>
                     <li><a href="#3.2."><strong>3.2. Overview of Science and Processes</strong></a></li>
+                    <li><a href="#3.3."><strong>3.3. Extra</strong></a></li>
                 </ul>
             </li>
             <li>
@@ -52,6 +52,13 @@
         <p>
             <img src="TRPWAssets/TerIndChemicalDiagram.png" alt="chemdiag">
             [Chemical Rxn Diagrams from Terraform Industries <a href="https://terraformindustries.com/">website</a>]
+        </p>
+        <p>
+            Terraformer overview <br>
+            <br>
+            - I am focusing my efforts on the carbon capture,
+            so the bulk of this project will focus on that <br>
+            - the other subunits will be covered as well however.
         </p>
 
         <h2 style="color: red;" id="2.">
@@ -315,7 +322,9 @@
             <strong>Discussion:</strong> <br>
             I believe an easy way I could have optimized this to get to net negative would be to
             make a bigger DAC (allowing for more calcium hydroxide to be carbonated) or run the
-            air pump for much less. They had a kiln at my school (in the material science makerspace), but it was unavailable,
+            air pump for much less time. Running the air pump for less time is achievable by having
+            a relative humidity sensor regulating the usage of the air pump.
+            They had a kiln at my school (in the material science makerspace), but it was unavailable,
             otherwise I could try to calcinate the powder and capture the CO<sub>2</sub>. <br>
         </p>
 
@@ -384,8 +393,84 @@
             <a href="#contents">🔝</a>
         </h3>
         <p>
+            The basic idea of electrolysis of water is producing hydrogen and oxygen gas
+            by splitting water using electricty. Overall chemical equation: <br>
+            <code>2H<sub>2</sub>O(l) -> 2H<sub>2</sub>(g) + O<sub>2</sub>(g)</code> <br>
+            <br>
             We get to electrolysis from redox rxns and electrochemistry:
             <img src="TRPWAssets/electrochem.png" alt="electrochem">
+            Great vid by Tyler DeWitt on electrolysis: <a href="https://youtu.be/dRtSjJCKkIo?si=mwxljlTUR8agY2pE">YouTube link</a> <br>
+            <br>
+
+            <strong>Water Electrolysis:</strong> <br>
+            Taking a look at the annotated redox rxn of water electrolysis:
+            <img src="TRPWAssets/waterelectrolysisrxn.png">
+            Let's try to find the voltage necessary for running this rxn.
+            To do so we'll look at reduction potentials. Note that we're assuming an
+            alkaline water electrolysis stack with potassium hydroxide as the electrolyte. <br>
+            <br>
+            Basic diagram of alkaline water electrolysis:
+            <img src="TRPWAssets/waterelectrolysisdiag.jpg">
+            [<a href="https://nickelgreen.com/awe-hydrogen-production-electrolyzer-composition/">img src</a>] <br>
+            <br>
+            Water electrolysis eqns from a table of standard electrode potentials from <a href="https://en.wikipedia.org/wiki/Standard_electrode_potential_(data_page)">Wikipedia</a>: 
+            <img src="TRPWAssets/stdep.png">
+            Using this we see the necessary voltage for water electrolysis. Eqn1 
+            determines the cathodic H<sub>2</sub> half rxn, eqn2 
+            determines the anodic O<sub>2</sub> half rxn. The reduction potentials of both
+            allow us to determine the standard cell potential in eqn3 as 1.23V. <br>
+            <br>
+            1.23V is the thermodynamic minimum cell voltage for splitting pure liquid water
+            into H<sub>2</sub> and O<sub>2</sub> in the standard state (298 K, 1 bar). In practice,
+            a higher voltage is needed. <br>
+            <br>
+            
+            <strong>Electrolyzer Model/Experiment:</strong> <br>
+            Ok now we've got an idea of the science behind alkaline water electrolysis,
+            how do we build a practical model? <br>
+            <img src="TRPWAssets/simplewaterelectrolysisexp.png">
+            We've diagrammed a very simple alkaline water electrolysis experiment above, and I will
+            explain the components now: <br>
+            - Container: must be resistant to caustics <br>
+            - Electrolyte solution: water with dissolved KOH, giving lots of free K<sup>+</sup> and OH<sup>-</sup> ions <br>
+            - Electrodes: nickel cathode and anode <br>
+            - Battery: 9V battery attached with leads to the electrodes<br>
+            <br>
+            As soon as one connects the battery, the circuit closes, electrons
+            flow from negative terminal to cathode to anode then back into positive terminal. Thus: <br>
+            1. At the cathode electrons flow into the water, water molecules around the cathode
+            pick up electrons and splits into hydrogen gas and hydroxide ions: <br>
+            <code>2H<sub>2</sub>O + 2e<sup>-</sup> -> H<sub>2</sub>(g) + 2OH<sup>-</sup></code> <br>
+            Thus we see hydrogen bubbles rising off the cathode. <br>
+            2. At the anode electrons are pulled out of the solution, hydroxide ions give up
+            electrons and combine to form oxygen gas and water: <br>
+            <code>4OH<sup>-</sup> -> O<sub>2</sub>(g) + 2H<sub>2</sub>O  + 4e<sup>-</sup></code> <br>
+            Thus we see oxygen bubbles rising off the anode. <br>
+            <br>
+            Hence we get the overall eqn: <br>
+            <code>2H<sub>2</sub>O(l) -> 2H<sub>2</sub>(g) + O<sub>2</sub>(g)</code> <br>
+
+            <br>
+            And then we can add in a diaphragm between the electrodes to allow the electrolysis to
+            take place while seperating the hydrogen and oxygen gases. This porous diaphragm
+            does so by allowing the OH<sup>-</sup> ions migrate to carry the current, but blocks the
+            hydrogen and oxygen gas from mixing.
+            <img src="TRPWAssets/simplewaterelectrolysisexp2.png">
+            Thus, now we can capture the hydrogen gas.
+        </p>
+        <h3 style="color: blue;" id="3.3.">
+            3.3. Extra
+            <a href="#contents">🔝</a>
+        </h3>
+        <p>
+            <strong>Images from Terraform Industries Blog:</strong> <br>
+            KOH alkaline solution and graphite electrodes:
+            <img src="TRPWAssets/electrolyzer1.png"  width="400" height="300">
+            [From TI Whitepaper] <br>
+            <br>
+            Electrolysis test rigs:
+            <img src="TRPWAssets/electrolyzer2.png"  width="400" height="300">
+            [From TI Whitepaper 2.0]
         </p>
 
 
