@@ -12,7 +12,7 @@
         <p>
             <a href="../../../index.html">Arihant Gadgade</a> <br>
             <a href="TerraformerReProDirectory.html">Terraformer Research Project Directory</a> <br>
-            Date Published: 5/12/2025<br>
+            Date Published: 6/26/2025<br>
         </p>
 
                 <h3 id="contents">Contents</h3>
@@ -41,6 +41,7 @@
                 <ul>
                     <li><a href="#4.1."><strong>4.1. Purpose</strong></a></li>
                     <li><a href="#4.2."><strong>4.2. Overview of Science and Processes</strong></a></li>
+                    <li><a href="#4.3."><strong>4.3. Extra</strong></a></li>
                 </ul>
             </li>
         </ul>
@@ -51,14 +52,33 @@
         </h2>
         <p>
             <img src="TRPWAssets/TerIndChemicalDiagram.png" alt="chemdiag">
-            [Chemical Rxn Diagrams from Terraform Industries <a href="https://terraformindustries.com/">website</a>]
-        </p>
-        <p>
-            Terraformer overview <br>
+            [Chemical Rxn Diagrams from Terraform Industries <a href="https://terraformindustries.com/">website</a>] <br>
             <br>
-            - I am focusing my efforts on the carbon capture,
-            so the bulk of this project will focus on that <br>
-            - the other subunits will be covered as well however.
+
+            <strong>Terraformer Overview:</strong> <br>
+            The Terraformer is a machine that capture carbon dioxide and produces methane. <br>
+            <br>
+            The Terraformer is comprised of 3 subunits: <br>
+            1. Direct Air Carbon Capture system <br>
+            2. Electrolyzer <br>
+            3. Methanation <br>
+            <br>
+
+            The carbon capture unit is what's responsible for combatting climate change
+            by removing CO<sub>2</sub> from the atmosphere. <br>
+            <br>
+            The electrolyzer creates the hydrogen gas from water necessary for the "hydro"
+            in hydrocarbons. <br>
+            <br>
+            Methanation is the money maker, this is where we take CO<sub>2</sub> and H<sub>2</sub>
+            and turn them into our useful CH<sub>4</sub> product. Thus, allowing us to successfully
+            monetize carbon capture, not to mention this will be cheaper than current methods of 
+            methane production. <br>
+            <br>
+
+            <strong>Project Overview:</strong> <br>
+            I will be covering the science and processes of each of the subunits. I will be focusing my efforts 
+            on the carbon capture system, as that is the subunit I will build and do experiments with. 
         </p>
 
         <h2 style="color: red;" id="2.">
@@ -483,12 +503,61 @@
             <a href="#contents">🔝</a>
         </h3>
         <p>
-            
+            The purpose of the Sabatier reactor is to convert
+            carbon dioxide and hydrogen gas into methane. This subunit
+            is responsible for the final profuct of the Terraformer.
         </p>
         <h3 style="color: blue;" id="4.2.">
             4.2. Overview of Science and Processes
             <a href="#contents">🔝</a>
         </h3>
+        <p>
+            The Sabatier Reaction occurs when carbon dioxide and hydrogen
+            react to produce methane and water. This reaction takes place
+            at 400&deg;C, 3MPa, and in the presence of a nickel catalyst.<br>
+            <br>
+
+            The exact mechanism by which the Sabatier Rxn acts is disagreed upon. <br>
+            <br>
+
+            Sabatier Rxn: <br>
+            <code>CO<sub>2</sub> + H<sub>2</sub> -> CH<sub>4</sub> + 2H<sub>2</sub>O &Delta;H=-165 kJ/mol</code> <br>
+            By the negative enthalpy, we see this is an exothermic rxn. <br>
+            <br>
+
+            The reaction takes place by way of catalytic hydrogenation of 
+            CO<sub>2</sub>, thus reduction of CO<sub>2</sub>. <br>
+            <br>
+
+            Reduction Half Rxn: <br>
+            <code>CO<sub>2</sub> + 8H<sup>+</sup> + 8e<sup>-</sup> -> CH<sub>4</sub> + 2H<sub>2</sub>O</code> <br>
+            Oxidation Half Rxn: <br>
+            <code>4H<sub>2</sub> -> 8H<sup>+</sup> + 8e<sup>-</sup></code> <br>
+            <br>
+
+            <strong>Diagram of a Sabatier Reactor:</strong>
+            <img src="TRPWAssets/SRdiag.png">
+            1. Hydrogen and oxygen gas is fed into a Mass Flow Controller (MFC) <br>
+            2. MFC to set H<sub>2</sub>:CO<sub>2</sub> ratio at 4:1, then pressurizes it to 3MPa<br>
+            3. The reactor is a fixed bed tube with nickel catalyst. Heating system lets reaction take place
+            at 400&deg;C. <br>
+            4. Condenser rapidly cools the hot reactor effluent, thus seperating steam from methane by turning
+            the steam into liquid water. <br>
+            5. The gas that exits the sabatier reactor is done so such that it is stored properly. Gas analysis
+            can be done with gas chromatograph.
+
+        </p>
+
+        <h3 style="color: blue;" id="4.3.">
+            4.3. Extra
+            <a href="#contents">🔝</a>
+        </h3>
+        <p>
+            <strong>Images from Terraform Industries Blog:</strong> <br>
+            Gen 1 Reactor Test Rig:
+            <img src="TRPWAssets/gen1rxt.png"  width="400" height="300">
+            [From TI Whitepaper 2.0]
+        </p>
 
     </article>
 </body>
