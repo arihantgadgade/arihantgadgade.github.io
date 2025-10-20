@@ -2,7 +2,7 @@ var treeData = {
   "name": "Index",
   "children": [
     {
-      "name": "Personal Projects",
+      "name": "Projects",
       "children": [
         { "name": "Engineering"},
         { "name": "Programming"}
