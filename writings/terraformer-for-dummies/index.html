@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Terraformer For Dummies</title>
+    <script src="../../assets/js/theme.js"></script>
     <link rel="stylesheet" href="../../assets/css/site.css">
 </head>
 <body>
     <div class="site-shell article-shell">
+        <div class="article-toolbar">
+            <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Switch to dark mode" data-theme-toggle>
+                <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+                <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
+                <span class="theme-toggle__thumb" aria-hidden="true"></span>
+            </button>
+        </div>
         <article class="article">
                 <h1>Terraformer For Dummies</h1>
                 <p>
@@ -16,7 +24,7 @@
                     <a href="../terraformer-research-project/">Terraformer Research Project Writeup</a> <br>
                     Date Published: 6/26/2025<br>
                 </p>
-        
+
                 <h3 id="contents">Contents</h3>
                 <ul>
                     <li><a href="#1."><strong>1. Introduction:</strong></a> Overview of what the Terraformer is and why it's necessary</li>
@@ -42,12 +50,12 @@
                         </ul>
                     </li>
                 </ul>
-        
+
                 <h2 style="color: red;" id="1.">
                     1. Introduction
                     <a href="#contents">🔝</a>
                 </h2>
-        
+
                 <p>
                     This is meant as a fairly simplistic introduction to the Terraformer. I'm writing this in an effort to learn about the technology for myself, and
                     explaining it will hopefully provide value to those who read this too. <br>
@@ -68,19 +76,19 @@
                     Then, you can see why Terraformer is a necessary solution, and the science of how it works will stick better. At least
                     for me, having an updated world model helped with contextualizing the Terraformer into that model, so I wrote it the way
                     that makes sense to me.
-        
+
                 </p>
                   
                 <h2 style="color: red;" id="2.">
                     2. Energy
                     <a href="#contents">🔝</a>
                 </h2>
-        
+
                 <h3 style="color: blue;" id="2.1.">
                     2.1. Terraformer Unit Energies
                     <a href="#contents">🔝</a>
                 </h3>
-        
+
                 <p>
                     There are two energy amounts to understand to get a scale of the 
                     energy consumption of a 
@@ -154,7 +162,7 @@
                     So now we have an idea of the efficiency, some intuition for the energy, and some intuition
                     for the gas production of the Terraformer.
                 </p>
-        
+
                 <h3 style="color: blue;" id="2.2.">
                     2.2. Global Energy Primer
                     <a href="#contents">🔝</a>
@@ -232,7 +240,7 @@
                     This is a massive amount, it's 2.5x the total energy consumption in 2023 and 108x the total solar energy production in 2023.
                     It's time to build!
                 </p>
-        
+
                 <h2 style="color: red;" id="3.">
                     3. Terrafomer and Energy Economics
                     <a href="#contents">🔝</a>
@@ -253,7 +261,7 @@
                     And for fun: <br>
                     <code>Yearly home energy usage in iPhone 14 Pro battery units: 1.37million iBats</code> <br>
                 </p>
-        
+
                 <h3 style="color: blue;" id="3.1.">
                     3.1. Energy Economics
                     <a href="#contents">🔝</a>
@@ -402,7 +410,7 @@
                 <p>
                     Check out the Whitepaper for more in depth economics and the Total Addressable Market (TAM).
                 </p>
-        
+
                 <h2 style="color: red;" id="4.">
                     4. How Terraformer Actually Works
                     <a href="#contents">🔝</a>
@@ -425,7 +433,7 @@
                     2. Electrolyzer <br>
                     3. Methanation <br>
                     <br>
-        
+
                     The carbon capture unit is what's responsible for combatting climate change
                     by removing CO<sub>2</sub> from the atmosphere. <br>
                     <br>
@@ -437,7 +445,7 @@
                     monetize carbon capture, not to mention this will be cheaper than current methods of 
                     methane production. <br>
                     <br>
-        
+
                     <strong>Engineering of the Subunits:</strong> <br>
                     <img src="../terraformer-research-project/TRPWAssets/tfdiagram.png">
                     The carbon capture unit works by pulling in air from the atmosphere, then humidifying
@@ -446,17 +454,17 @@
                     This calcium carbonate is then heated up in a kiln so the CO<sub>2</sub> gas can then be
                     extracted and sent to the Sabatier reactor. These lime forms are cycled until used up. <br>
                     <br>
-        
+
                     The electrolyzer works based on the process of water electrolysis: electricity is used to separate
                     water into hydrogen and oxygen gas. The oxygen gas is vented off, while the hydrogen gas is sent to 
                     the Sabatier reactor. <br>
                     <br>
-        
+
                     The Sabatier reactor takes the fed in carbon dioxide and hydrogen gas, then combines them in appropriate ratios,
                     feeds them into the reactor chamber where they are heated, pressurized, and subjected to a nickel catalyst. This
                     allows the named Sabatier rxn to occur. The effluent gas is then cooled, and the methane is properly stored. <br>
                     <br>
-        
+
                     <strong>Chemical Rxns:</strong> <br>
                     Calcium Looping in the Carbon Capture System:<br>
                     <code>Slaking: CaO(s) + H<sub>2</sub>O(g) -> Ca(OH)<sub>2</sub>(s) &Delta;H = -110.2 kJ/mol</code> <br>
@@ -469,7 +477,7 @@
                     Sabatier Reaction: <br>
                     <code>CO<sub>2</sub> + H<sub>2</sub> -> CH<sub>4</sub> + 2H<sub>2</sub>O &Delta;H=-165 kJ/mol</code> <br>
                     <br>
-        
+
                     <strong>Terraformer Research Project Writeup:</strong> <br>
                     You can read more on the Terraformer here: 
                     <a href="../terraformer-research-project/">TRPW</a>
@@ -483,9 +491,9 @@
                     chosen so that the Terraformer can be mass produced cheaply, and
                     take advantage of cheap solar power. Capital efficiency > electrical efficiency.
                 </p>
-        
+
             </article>
-        
+
     </div>
 </body>
 </html>

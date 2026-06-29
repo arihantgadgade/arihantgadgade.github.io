@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{TITLE}}</title>
+    <script src="../../assets/js/theme.js"></script>
     <link rel="stylesheet" href="../../assets/css/site.css">
 {{EXTRA_HEAD}}</head>
 <body>
     <div class="site-shell article-shell">
+        <div class="article-toolbar">
+            <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Switch to dark mode" data-theme-toggle>
+                <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+                <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
+                <span class="theme-toggle__thumb" aria-hidden="true"></span>
+            </button>
+        </div>
 {{CONTENT}}
     </div>
 </body>

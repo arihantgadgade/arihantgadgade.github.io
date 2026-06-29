@@ -5,13 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Arihant Gadgade's personal website, projects, writings, and links.">
     <title>Arihant Gadgade</title>
+    <script src="assets/js/theme.js"></script>
     <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
     <div class="site-shell">
         <main>
             <section class="home-intro" aria-labelledby="intro-title">
-                <h1 id="intro-title">Arihant Gadgade</h1>
+                <div class="home-title-row">
+                    <h1 id="intro-title">Arihant Gadgade</h1>
+                    <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Switch to dark mode" data-theme-toggle>
+                        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+                        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
+                        <span class="theme-toggle__thumb" aria-hidden="true"></span>
+                    </button>
+                </div>
                 <nav class="site-nav home-nav" aria-label="Primary navigation">
                     <a href="writings/">Writings</a>
                     <a href="https://github.com/arihantgadgade">GitHub</a>

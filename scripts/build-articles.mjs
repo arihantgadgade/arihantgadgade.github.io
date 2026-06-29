@@ -61,9 +61,15 @@ function extractHeadExtras(html) {
   head = head.replace(/<meta[^>]*charset[^>]*>\s*/i, "");
   head = head.replace(/<meta[^>]*name="viewport"[^>]*>\s*/i, "");
   head = head.replace(/<title>[\s\S]*?<\/title>\s*/i, "");
+  head = head.replace(/<script[^>]*src="(?:\.\.\/)*assets\/js\/theme\.js"[^>]*><\/script>\s*/gi, "");
   head = head.replace(/<link[^>]*href="(?:\.\.\/)*assets\/styles\.css"[^>]*>\s*/gi, "");
   head = head.replace(/<link[^>]*href="(?:\.\.\/)*assets\/css\/site\.css"[^>]*>\s*/gi, "");
-  return head.trim() ? `${head.trim()}\n` : "";
+  const lines = head.split("\n").map((line) => line.trimEnd());
+  while (lines.length && !lines[0].trim()) lines.shift();
+  while (lines.length && !lines.at(-1).trim()) lines.pop();
+  if (!lines.length) return "";
+
+  return `${lines.map((line) => line.trimStart()).join("\n")}\n`;
 }
 
 function extractBody(html) {
@@ -94,8 +100,8 @@ for (const article of articles) {
 
   const rendered = template
     .replace("{{TITLE}}", title)
-    .replace("{{EXTRA_HEAD}}", extras ? `    ${extras.replace(/\n/g, "\n    ")}` : "")
-    .replace("{{CONTENT}}", body.split("\n").map((line) => `        ${line}`).join("\n"));
+    .replace("{{EXTRA_HEAD}}", extras ? extras.split("\n").map((line) => line ? `    ${line}` : "").join("\n") : "")
+    .replace("{{CONTENT}}", body.split("\n").map((line) => line ? `        ${line}` : "").join("\n"));
 
   await writeFile(join(root, article.output), `${rendered}\n`);
 }

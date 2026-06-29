@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Terraformer Research Project Writeup</title>
+    <script src="../../assets/js/theme.js"></script>
     <link rel="stylesheet" href="../../assets/css/site.css">
 </head>
 <body>
     <div class="site-shell article-shell">
+        <div class="article-toolbar">
+            <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Switch to dark mode" data-theme-toggle>
+                <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+                <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
+                <span class="theme-toggle__thumb" aria-hidden="true"></span>
+            </button>
+        </div>
         <article class="article">
                 <h1>Terraformer Research Project Writeup</h1>
                 <p>
@@ -16,7 +24,7 @@
                     <a href="../terraformer-for-dummies/">Terraformer For Dummies</a> <br>
                     Date Published: 6/26/2025<br>
                 </p>
-        
+
                         <h3 id="contents">Contents</h3>
                 <ul>
                     <li><a href="#1."><strong>1. Introduction</strong></a></li>
@@ -47,7 +55,7 @@
                         </ul>
                     </li>
                 </ul>
-        
+
                 <h2 style="color: red;" id="1.">
                     1. Introduction
                     <a href="#contents">🔝</a>
@@ -56,7 +64,7 @@
                     <img src="TRPWAssets/TerIndChemicalDiagram.png" alt="chemdiag">
                     [Chemical Rxn Diagrams from Terraform Industries <a href="https://terraformindustries.com/">website</a>] <br>
                     <br>
-        
+
                     <strong>Terraformer Overview:</strong> <br>
                     The Terraformer is a machine that capture carbon dioxide and produces methane. <br>
                     <br>
@@ -65,7 +73,7 @@
                     2. Electrolyzer <br>
                     3. Methanation <br>
                     <br>
-        
+
                     The carbon capture unit is what's responsible for combatting climate change
                     by removing CO<sub>2</sub> from the atmosphere. <br>
                     <br>
@@ -79,17 +87,17 @@
                     <br>
                     You can find an introduction to the Terraformer <a href="../terraformer-for-dummies/">here</a>. <br>
                     <br>
-        
+
                     <strong>Project Overview:</strong> <br>
                     I will be covering the science and processes of each of the subunits. I will be focusing my efforts 
                     on the carbon capture system, as that is the subunit I will build and do experiments with. 
                 </p>
-        
+
                 <h2 style="color: red;" id="2.">
                     2. Direct Air Capture
                     <a href="#contents">🔝</a>
                 </h2>
-        
+
                 <h3 style="color: blue;" id="2.1.">
                     2.1. Purpose
                     <a href="#contents">🔝</a>
@@ -99,7 +107,7 @@
                     We need carbon dioxide and hydrogen to create the methane, and thus this
                     DAC is used to get the CO<sub>2</sub>.
                 </p>
-        
+
                 <h3 style="color: blue;" id="2.2.">
                     2.2. Overview of Science and Processes
                     <a href="#contents">🔝</a>
@@ -211,7 +219,7 @@
                     Here we see in the red, the sorbent being fluidized, with gas presumably coming up through the floor of the bed. <br>
                     <br>
                 </p>
-        
+
                 <h3 style="color: blue;" id="2.4.">
                     2.4. Experiment
                     <a href="#contents">🔝</a>
@@ -288,7 +296,7 @@
                     Remeasuring the powder gives us: <br>
                     <code>Final solid mass: 5.751g</code> <br>
                     <code>Solid mass change: 5.751g - 5g = .751g</code>
-        
+
                     <br>
                     
                     <br>
@@ -359,7 +367,7 @@
                     They had a kiln at my school (in the material science makerspace), but it was unavailable,
                     otherwise I could try to calcinate the powder and capture the CO<sub>2</sub>. <br>
                 </p>
-        
+
                 <h3 style="color: blue;" id="2.5.">
                     2.5. Extra
                     <a href="#contents">🔝</a>
@@ -404,9 +412,9 @@
                     to economically produce carbon from captured CO<sub>2</sub>, then we've found a way to make a
                     profitable carbon negative process, as opposed to just the carbon neutrality of the
                     current Terraformer. However CO<sub>2</sub> is quite stable, so further analysis is needed.
-        
+
                 </p>
-        
+
                 <h2 style="color: red;" id="3.">
                     3. Electrolyzer
                     <a href="#contents">🔝</a>
@@ -433,7 +441,7 @@
                     <img src="TRPWAssets/electrochem.png" alt="electrochem">
                     Great vid by Tyler DeWitt on electrolysis: <a href="https://youtu.be/dRtSjJCKkIo?si=mwxljlTUR8agY2pE">YouTube link</a> <br>
                     <br>
-        
+
                     <strong>Water Electrolysis:</strong> <br>
                     Taking a look at the annotated redox rxn of water electrolysis:
                     <img src="TRPWAssets/waterelectrolysisrxn.png">
@@ -481,7 +489,7 @@
                     <br>
                     Hence we get the overall eqn: <br>
                     <code>2H<sub>2</sub>O(l) -> 2H<sub>2</sub>(g) + O<sub>2</sub>(g)</code> <br>
-        
+
                     <br>
                     And then we can add in a diaphragm between the electrodes to allow the electrolysis to
                     take place while seperating the hydrogen and oxygen gases. This porous diaphragm
@@ -504,8 +512,8 @@
                     <img src="TRPWAssets/electrolyzer2.png"  width="400" height="300">
                     [From TI Whitepaper 2.0]
                 </p>
-        
-        
+
+
                 <h2 style="color: red;" id="4.">
                     4. Methanation
                     <a href="#contents">🔝</a>
@@ -528,25 +536,25 @@
                     react to produce methane and water. This reaction takes place
                     at 400&deg;C, 3MPa, and in the presence of a nickel catalyst.<br>
                     <br>
-        
+
                     The exact mechanism by which the Sabatier Rxn acts is disagreed upon. <br>
                     <br>
-        
+
                     Sabatier Rxn: <br>
                     <code>CO<sub>2</sub> + H<sub>2</sub> -> CH<sub>4</sub> + 2H<sub>2</sub>O &Delta;H=-165 kJ/mol</code> <br>
                     By the negative enthalpy, we see this is an exothermic rxn. <br>
                     <br>
-        
+
                     The reaction takes place by way of catalytic hydrogenation of 
                     CO<sub>2</sub>, thus reduction of CO<sub>2</sub>. <br>
                     <br>
-        
+
                     Reduction Half Rxn: <br>
                     <code>CO<sub>2</sub> + 8H<sup>+</sup> + 8e<sup>-</sup> -> CH<sub>4</sub> + 2H<sub>2</sub>O</code> <br>
                     Oxidation Half Rxn: <br>
                     <code>4H<sub>2</sub> -> 8H<sup>+</sup> + 8e<sup>-</sup></code> <br>
                     <br>
-        
+
                     <strong>Diagram of a Sabatier Reactor:</strong>
                     <img src="TRPWAssets/SRdiag.png">
                     1. Hydrogen and oxygen gas is fed into a Mass Flow Controller (MFC) <br>
@@ -557,9 +565,9 @@
                     the steam into liquid water. <br>
                     5. The gas that exits the sabatier reactor is done so such that it is stored properly. Gas analysis
                     can be done with gas chromatograph.
-        
+
                 </p>
-        
+
                 <h3 style="color: blue;" id="4.3.">
                     4.3. Extra
                     <a href="#contents">🔝</a>
@@ -570,9 +578,9 @@
                     <img src="TRPWAssets/gen1rxt.png"  width="400" height="300">
                     [From TI Whitepaper 2.0]
                 </p>
-        
+
             </article>
-        
+
     </div>
 </body>
 </html>

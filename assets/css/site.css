@@ -1,21 +1,57 @@
 :root {
-    --bg: #f7f5f0;
+    --bg: #f5f2ea;
     --surface: #fffefa;
-    --text: #25231f;
-    --muted: #6f6a60;
-    --line: #d8d1c4;
-    --accent: #1f6f78;
-    --accent-dark: #164f56;
-    --warm: #9b4f2f;
-    --shadow: 0 18px 48px rgba(49, 43, 34, 0.08);
+    --text: #20242b;
+    --text-soft: #343b43;
+    --muted: #687078;
+    --line: #d5d2ca;
+    --accent: #315a7d;
+    --accent-dark: #24445f;
+    --warm: #8a4f35;
+    --grid: rgba(32, 36, 43, 0.035);
+    --grid-secondary: rgba(32, 36, 43, 0.028);
+    --quote-bg: #f0f1ef;
+    --code-bg: #edf1f5;
+    --code-border: #bdc9d4;
+    --table-heading: #edf0f2;
+    --thumb-bg: #f1efe8;
+    --toggle-track: #dce1e5;
+    --toggle-thumb: #ffffff;
+    --accent-border: rgba(49, 90, 125, 0.4);
+    --line-strong: rgba(213, 210, 202, 0.82);
+    --line-soft: rgba(213, 210, 202, 0.72);
+    --shadow: 0 18px 48px rgba(32, 36, 43, 0.08);
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    --bg: #16191d;
+    --surface: #20242a;
+    --text: #e8e5de;
+    --text-soft: #cbc8c1;
+    --muted: #a9adb2;
+    --line: #3b424b;
+    --accent: #76b6c4;
+    --accent-dark: #a1d4de;
+    --warm: #d69a70;
+    --grid: rgba(232, 229, 222, 0.025);
+    --grid-secondary: rgba(232, 229, 222, 0.02);
+    --quote-bg: #1d2227;
+    --code-bg: #252d35;
+    --code-border: #435462;
+    --table-heading: #252b31;
+    --thumb-bg: #1c2025;
+    --toggle-track: #303842;
+    --toggle-thumb: #f1eee7;
+    --accent-border: rgba(118, 182, 196, 0.55);
+    --line-strong: rgba(59, 66, 75, 0.82);
+    --line-soft: rgba(59, 66, 75, 0.72);
+    --shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+    color-scheme: dark;
 }
 
 * {
     box-sizing: border-box;
-}
-
-html {
-    color-scheme: light;
 }
 
 body {
@@ -33,8 +69,8 @@ body::before {
     inset: 0;
     pointer-events: none;
     background:
-        linear-gradient(90deg, rgba(37, 35, 31, 0.035) 1px, transparent 1px),
-        linear-gradient(rgba(37, 35, 31, 0.028) 1px, transparent 1px);
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+        linear-gradient(var(--grid-secondary) 1px, transparent 1px);
     background-size: 48px 48px;
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), transparent 38%);
 }
@@ -98,6 +134,80 @@ img {
     color: var(--text);
 }
 
+.theme-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0;
+    width: 58px;
+    height: 32px;
+    padding: 0 8px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--toggle-track);
+    color: var(--muted);
+    font: inherit;
+    cursor: pointer;
+    transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.theme-toggle__icon {
+    position: relative;
+    z-index: 2;
+    width: 14px;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    transition: color 160ms ease;
+}
+
+.theme-toggle__thumb {
+    position: absolute;
+    z-index: 1;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    background: var(--toggle-thumb);
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.38);
+    transition: left 160ms ease, background-color 160ms ease;
+}
+
+.theme-toggle__icon--sun {
+    color: var(--warm);
+}
+
+.theme-toggle[aria-checked="true"] .theme-toggle__thumb {
+    left: 29px;
+}
+
+.theme-toggle[aria-checked="true"] .theme-toggle__icon--sun {
+    color: var(--muted);
+}
+
+.theme-toggle[aria-checked="true"] .theme-toggle__icon--moon {
+    color: var(--accent);
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.article-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    font-size: 0.93rem;
+}
+
 .hero {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 320px;
@@ -145,7 +255,7 @@ p {
 
 .lead {
     max-width: 710px;
-    color: #34312c;
+    color: var(--text-soft);
     font-size: 1.1rem;
 }
 
@@ -153,8 +263,16 @@ p {
     max-width: 760px;
 }
 
-.home-intro h1 {
+.home-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
     margin-bottom: 10px;
+}
+
+.home-intro h1 {
+    margin-bottom: 0;
     font-size: 2.15rem;
 }
 
@@ -164,7 +282,7 @@ p {
 
 .home-intro p {
     max-width: 720px;
-    color: #34312c;
+    color: var(--text-soft);
 }
 
 .link-row {
@@ -311,21 +429,21 @@ p {
 .article blockquote {
     margin: 20px 0;
     padding: 15px 20px;
-    background-color: #f9f9f9;
-    border-left: 5px solid #ccc;
+    background-color: var(--quote-bg);
+    border-left: 5px solid var(--line);
     font-style: italic;
 }
 
 .article pre,
 .article code {
-    background-color: #eef;
+    background-color: var(--code-bg);
     padding: 5px;
     overflow-x: auto;
     font-family: "Courier New", Courier, monospace;
     font-size: 1em;
-    border: 2px solid #c8b8ee;
+    border: 2px solid var(--code-border);
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.24);
     margin: 1em 0;
 }
 
@@ -337,12 +455,12 @@ p {
 
 .article th,
 .article td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--line);
     padding: 8px;
 }
 
 .article th {
-    background-color: #f2f2f2;
+    background-color: var(--table-heading);
     text-align: left;
 }
 
@@ -386,7 +504,7 @@ p {
     border: 1px solid var(--line);
     border-radius: 8px;
     object-fit: cover;
-    background: #f8f6f1;
+    background: var(--thumb-bg);
 }
 
 .featured-card__body {
@@ -400,7 +518,7 @@ p {
 }
 
 .featured-card__link:hover .featured-card__thumb {
-    border-color: rgba(31, 111, 120, 0.35);
+    border-color: var(--accent-border);
 }
 
 .section-header {
@@ -430,7 +548,7 @@ p {
 
 .item {
     padding: 18px 0;
-    border-bottom: 1px solid rgba(216, 209, 196, 0.82);
+    border-bottom: 1px solid var(--line-strong);
 }
 
 .item:first-child {
@@ -499,7 +617,7 @@ p {
     display: flex;
     gap: 10px;
     padding: 8px 0;
-    border-bottom: 1px solid rgba(216, 209, 196, 0.72);
+    border-bottom: 1px solid var(--line-soft);
 }
 
 .plain-list li::before {
